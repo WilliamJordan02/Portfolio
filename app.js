@@ -27,11 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Gérer les transitions de page
-        const pageLinks = document.querySelectorAll('a[href$=".html"]');
+        const pageLinks = document.querySelectorAll('a[href*=".html"]');
         pageLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                const targetUrl = link.getAttribute('href');
-                if (!targetUrl || targetUrl === window.location.pathname.split('/').pop()) return;
+                const href = link.getAttribute('href');
+                const targetUrl = href.split('#')[0];
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                
+                // Si on navigue sur la même page (ex: index.html#hash alors qu'on y est déjà), on laisse le comportement par défaut
+                if (targetUrl === currentPage || (targetUrl === 'index.html' && currentPage === '') || (targetUrl === '' && currentPage === 'index.html')) return;
                 
                 e.preventDefault();
                 
@@ -44,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Redirection après la fin du rideau (0.8s)
                 setTimeout(() => {
-                    window.location.href = targetUrl;
+                    window.location.href = href;
                 }, 800);
             });
         });
@@ -81,15 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 
-    // Smooth scroll manuel pour gérer le décalage (offset) du header fixe
+    // Smooth scroll manuel pour gérer le décalage (offset) du header fixe de façon dynamique
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
-                // 200px offset pour éviter que le header masque le titre
-                const yOffset = -220; 
+                // Calculer dynamiquement la hauteur du header s'il est collant
+                const header = document.querySelector('.main-header');
+                const isSticky = window.getComputedStyle(header).position === 'sticky';
+                const yOffset = isSticky ? -header.offsetHeight - 20 : -20; 
+                
                 const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
                 window.scrollTo({top: y, behavior: 'smooth'});
             }
@@ -219,11 +226,18 @@ document.addEventListener('DOMContentLoaded', () => {
             
             station.classList.add('active');
             
-            // Mettre à jour la barre de progression (très basique pour l'effet)
+            // Mettre à jour la barre de progression (très basique pour l'effet, s'adapte en hauteur ou en largeur)
             const progress = document.querySelector('.metro-progress');
             if (progress) {
                 const percentage = (index / (stations.length - 1)) * 100;
-                progress.style.width = `${percentage}%`;
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile) {
+                    progress.style.height = `${percentage}%`;
+                    progress.style.width = '100%';
+                } else {
+                    progress.style.width = `${percentage}%`;
+                    progress.style.height = '100%';
+                }
             }
             
             // Mettre à jour la carte de détail
@@ -233,17 +247,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const list = document.querySelector('.brutalist-list');
             
             if (index === 0) {
-                expTitle.textContent = "Designer UI & Creative Dev Lead";
-                expCompany.textContent = "渋谷クリエイティブ / Shibuya Creative Studio";
-                expDate.textContent = "2024 - PRÉSENT";
+                expTitle.textContent = "Baccalauréat Générale optin NSI et AMC";
+                expDate.textContent = "2022";
                 list.innerHTML = `
                     <li>Direction artistique de sites web interactifs à fort impact pour marques de luxe et culturelles.</li>
                     <li>Conception de prototypes interactifs avancés sous Figma et transfert technique rigoureux en CSS.</li>
                     <li>Développement de grilles d'information asymétriques optimisées pour tous les formats de terminaux.</li>
                 `;
             } else if (index === 1) {
-                expTitle.textContent = "Développeur Front-End Avancé";
-                expCompany.textContent = "ネオ東京研究所 / Neo-Tokyo Lab";
+                expTitle.textContent = "BTS SIO option SLAM";
                 expDate.textContent = "2022 - 2024";
                 list.innerHTML = `
                     <li>Création d'expériences WebGL et animations complexes (Three.js, GSAP).</li>
@@ -251,23 +263,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     <li>Optimisation des performances web (Core Web Vitals).</li>
                 `;
             } else if (index === 2) {
-                expTitle.textContent = "Web Designer Junior";
-                expCompany.textContent = "大阪ファウンドリー / Osaka Foundry";
-                expDate.textContent = "2020 - 2022";
+                expTitle.textContent = "Bachelor 3ème année Webdesign";
+                expDate.textContent = "2025 - 2026";
                 list.innerHTML = `
                     <li>Design de systèmes de composants et UI kits.</li>
                     <li>Maquettage fil de fer (Wireframes) et tests utilisateurs.</li>
                     <li>Maintenance CSS et révision typographique.</li>
                 `;
-            } else {
-                expTitle.textContent = "Formation Design Interactive";
-                expCompany.textContent = "デジタル道場 / Digital Dojo";
-                expDate.textContent = "2018 - 2020";
-                list.innerHTML = `
-                    <li>Étude approfondie de la typographie japonaise et suisse.</li>
-                    <li>Apprentissage des bases du code créatif.</li>
-                `;
-            }
+            } 
         });
     });
 

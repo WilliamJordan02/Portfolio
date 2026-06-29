@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales — William Anguile-Diop</title>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Serif+JP:wght@600;900&family=Orbitron:wght@700;900&family=Quantico:wght@700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=19">
     <style>
         .mentions-container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 4rem;
             background-color: var(--bg-cream);
@@ -56,8 +56,8 @@
             font-size: 1.05rem;
         }
         .back-nav {
-            max-width: 800px;
-            margin: 3rem auto 2rem auto;
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
         }
         .back-link {
             font-family: var(--font-heading);
@@ -91,6 +91,22 @@
                 linear-gradient(to bottom, rgba(18, 18, 18, 0.05) 1px, transparent 1px);
             background-size: 20px 20px;
         }
+
+        @media (max-width: 1240px) {
+            .mentions-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+        @media (max-width: 840px) {
+            .mentions-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .mentions-title {
+                font-size: 2.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -107,63 +123,159 @@
             <div class="loader-status">INITIALIZING...</div>
         </div>
     </div>
+    
+    <!-- Overlays & Anim -->
     <div class="paper-overlay"></div>
+    <div id="sakura-container"></div>
     <div class="mentions-bg"></div>
     
-    <div style="padding-bottom: 4rem;">
+    <div class="app-container">
         
-        <nav class="back-nav">
-            <a href="index.html" class="back-link">
-                <span>←</span> RETOUR AU PORTFOLIO
-            </a>
-        </nav>
+        <!-- Barre Latérale Gauche - Style Affiche Japonaise -->
+        <aside class="sidebar-left">
+            <div class="logo-area">
+                <div class="hanko-stamp">WA</div>
+                <a href="index.html" style="text-decoration: none; color: inherit; display: block; text-align: center;">
+                    <div class="logo-title">W.ANGUILE-DIOP</div>
+                </a>
+                <div class="logo-subtitle">ウィリアム</div>
+            </div>
+            
+            <div class="vertical-text-container">
+                <span class="vertical-text-item">ウェブデザイナー • 設計士</span>
+                <span class="vertical-text-divider"></span>
+                <span class="vertical-text-item latin">INTERFACE ARTISAN ©2026</span>
+            </div>
 
-        <main class="mentions-container">
-            <header class="mentions-header">
-                <div>
-                    <h1 class="mentions-title">Mentions<br>Légales</h1>
+             <div class="oriental-accent-stamp">
+                <div class="accent-circle"></div>
+                <div class="accent-line"></div>
+                <div class="accent-kanji">寿</div>
+            </div>
+        </aside>
+
+        <!-- Zone Principale de Contenu -->
+        <main class="main-content">
+            
+            <!-- En-tête Supérieur (Fixe) -->
+            <header class="main-header">
+                <div class="header-banner">
+                    <span class="banner-ticker">
+                        PROJETS DISPONIBLES • UI/UX CONCEPTION • DISPONIBLE POUR CONTRATS • CREATIVE DESIGN • GRID SYSTEMS • JAPANESE INSPIRATION • 
+                        PROJETS DISPONIBLES • UI/UX CONCEPTION • DISPONIBLE POUR CONTRATS • CREATIVE DESIGN • GRID SYSTEMS • JAPANESE INSPIRATION • 
+                    </span>
                 </div>
-                <div class="mentions-ja">法的通知</div>
+
+                <div class="header-main-title">
+                    <div class="title-left">
+                        <span class="subtitle-badge">DISPONIBLE POUR CONTRATS</span>
+                    </div>
+                    <nav class="classic-nav">
+                        <a href="index.html#tab-intro" class="nav-link">
+                            <span class="nav-text">A PROPOS</span>
+                            <span class="nav-ja">自己紹介</span>
+                        </a>
+                        <a href="index.html#tab-experience" class="nav-link">
+                            <span class="nav-text">PARCOURS</span>
+                            <span class="nav-ja">経歴</span>
+                        </a>
+                        <a href="index.html#tab-projects" class="nav-link">
+                            <span class="nav-text">MES PROJETS</span>
+                            <span class="nav-ja">作品</span>
+                        </a>
+                        <a href="index.html#tab-contact" class="nav-link">
+                            <span class="nav-text">CONTACT</span>
+                            <span class="nav-ja">連絡先</span>
+                        </a>
+                    </nav>
+                    <div class="title-right">
+                        <div class="utility-controls">
+                            <!-- Contrôle Sakura -->
+                            <button id="toggle-sakura" class="util-btn active" title="Activer/Désactiver Sakura">
+                                <span class="btn-icon">🌸</span>
+                                <span class="btn-text">SAKURA: ON</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </header>
 
-            <section class="mentions-section">
-                <h2>1. Éditeur du site</h2>
-                <p>
-                    Le présent site web est édité par <strong>William Anguile-Diop</strong>.<br>
-                    Statut : Designer / Développeur Web indépendant<br>
-                    Email : [VOTRE EMAIL]<br>
-                    Téléphone : [VOTRE NUMÉRO]
-                </p>
-            </section>
+            <!-- Sections de Contenu -->
+            <div class="content-body" style="padding-bottom: 4rem;">
+                
+                <!-- Navigation Retour -->
+                <nav class="back-nav">
+                    <a href="index.html" class="back-link">
+                        <span>←</span> RETOUR AU PORTFOLIO
+                    </a>
+                </nav>
 
-            <section class="mentions-section">
-                <h2>2. Hébergement</h2>
-                <p>
-                    Ce site est hébergé par : <strong>[NOM DE L'HÉBERGEUR]</strong><br>
-                    Adresse : [ADRESSE DE L'HÉBERGEUR]<br>
-                    Site web : [URL DE L'HÉBERGEUR]
-                </p>
-            </section>
+                <!-- Cadre des Mentions Légales -->
+                <div class="mentions-container">
+                    <header class="mentions-header">
+                        <div>
+                            <h1 class="mentions-title">Mentions<br>Légales</h1>
+                        </div>
+                        <div class="mentions-ja">法的通知</div>
+                    </header>
 
-            <section class="mentions-section">
-                <h2>3. Propriété Intellectuelle</h2>
-                <p>
-                    L'ensemble des éléments figurant sur le présent site (textes, images, designs, logos, architecture brutale, code source) sont la propriété exclusive de William Anguile-Diop, sauf mention contraire. Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est formellement interdite sans autorisation écrite préalable.
-                </p>
-            </section>
+                    <section class="mentions-section">
+                        <h2>1. Éditeur du site</h2>
+                        <p>
+                            Le présent site web est édité par <strong>William Anguile-Diop</strong>.<br>
+                            Statut : Designer / Développeur Web indépendant<br>
+                            Email : [VOTRE EMAIL]<br>
+                            Téléphone : [VOTRE NUMÉRO]
+                        </p>
+                    </section>
 
-            <section class="mentions-section">
-                <h2>4. Données Personnelles</h2>
-                <p>
-                    Les informations recueillies via le bordereau de transmission (formulaire de contact) sont enregistrées de manière sécurisée par William Anguile-Diop dans le seul but de faciliter les échanges commerciaux. Elles sont conservées le temps nécessaire à la relation commerciale et ne sont en aucun cas revendues ou cédées à des tiers.
-                </p>
-                <p>
-                    Conformément à la loi "Informatique et Libertés" et au RGPD, vous pouvez exercer votre droit d'accès aux données vous concernant et les faire rectifier ou supprimer en contactant l'éditeur à l'adresse fournie ci-dessus.
-                </p>
-            </section>
+                    <section class="mentions-section">
+                        <h2>2. Hébergement</h2>
+                        <p>
+                            Ce site est hébergé par : <strong>[NOM DE L'HÉBERGEUR]</strong><br>
+                            Adresse : [ADRESSE DE L'HÉBERGEUR]<br>
+                            Site web : [URL DE L'HÉBERGEUR]
+                        </p>
+                    </section>
+
+                    <section class="mentions-section">
+                        <h2>3. Propriété Intellectuelle</h2>
+                        <p>
+                            L'ensemble des éléments figurant sur le présent site (textes, images, designs, logos, architecture brutale, code source) sont la propriété exclusive de William Anguile-Diop, sauf mention contraire. Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est formellement interdite sans autorisation écrite préalable.
+                        </p>
+                    </section>
+
+                    <section class="mentions-section">
+                        <h2>4. Données Personnelles</h2>
+                        <p>
+                            Les informations recueillies via le bordereau de transmission (formulaire de contact) sont enregistrées de manière sécurisée par William Anguile-Diop dans le seul but de faciliter les échanges commerciaux. Elles sont conservées le temps nécessaire à la relation commerciale et ne sont en aucun cas revendues ou cédées à des tiers.
+                        </p>
+                        <p>
+                            Conformément à la loi "Informatique et Libertés" et au RGPD, vous pouvez exercer votre droit d'accès aux données vous concernant et les faire rectifier ou supprimer en contactant l'éditeur à l'adresse fournie ci-dessus.
+                        </p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Pied de page -->
+            <footer class="main-footer brutal-card-white">
+                <div class="footer-left">
+                    <p>© 2026 William Anguile-Diop. Tous droits réservés. Développé avec rigueur et passion. | <a href="mentions.html" style="color: var(--text-dark); font-weight: bold;">Mentions Légales</a></p>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-stickers">
+                        <span class="sticker-tag sticker-red">WEB-STANDARDS</span>
+                        <span class="sticker-tag sticker-black">NO-FRAMEWORK</span>
+                        <span class="sticker-tag sticker-green">WABI-SABI</span>
+                    </div>
+                </div>
+            </footer>
+
         </main>
+        
     </div>
-    
+
+    <!-- Script de chargement et d'animation -->
     <script src="app.js"></script>
 </body>
 </html>

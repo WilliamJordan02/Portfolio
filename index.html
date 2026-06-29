@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Serif+JP:wght@600;900&family=Orbitron:wght@700;900&family=Quantico:wght@700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=19">
 </head>
 <body>
     <!-- Écran de Chargement Brutaliste -->
@@ -20,10 +20,7 @@
                 <div class="logo-subtitle">ウィリアム</div>
             </div>
 
-            <div class="loader-progress-box">
-                <div class="loader-progress-bar"></div>
-            </div>
-            <div class="loader-status">INITIALIZING...</div>
+            
         </div>
     </div>
     <!-- Overlay Grain de Papier Rétro -->
@@ -72,8 +69,8 @@
 
                 <div class="header-main-title">
                     <div class="title-left">
+                       
                         <span class="subtitle-badge">DISPONIBLE POUR CONTRATS</span>
-                        
                     </div>
                     <nav class="classic-nav">
                     <a href="#tab-intro" class="nav-link active">
@@ -136,19 +133,25 @@
                                     <div class="skill-category">
                                         <span class="skill-header">■ DESIGN & UI</span>
                                         <div class="badge-row">
-                                            <span class="retro-badge text-black bg-cream">UI/UX Design</span>
-                                            <span class="retro-badge text-black bg-cream">Typographie</span>
-                                            <span class="retro-badge text-black bg-cream">Figma Mastery</span>
-                                            <span class="retro-badge text-black bg-cream">Wireframing</span>
+                                            <span class="retro-badge text-white bg-blue">Figma</span>
+                                            <span class="retro-badge text-white bg-blue">Canva</span>
+                                            <span class="retro-badge text-white bg-blue">Photoshop</span>
+                                             <span class="retro-badge text-white bg-blue">Illustrator</span>
+                                            <span class="retro-badge text-white bg-blue">Wireframing</span>
                                         </div>
                                     </div>
                                     <div class="skill-category mt-3">
                                         <span class="skill-header">■ DÉVELOPPEMENT WEB</span>
                                         <div class="badge-row">
-                                            <span class="retro-badge text-white bg-dark-badge">HTML / CSS Brut</span>
-                                            <span class="retro-badge text-white bg-dark-badge">Javascript Moderne</span>
-                                            <span class="retro-badge text-white bg-dark-badge">React / Vue</span>
-                                            <span class="retro-badge text-white bg-dark-badge">WebGL / Three.js</span>
+                                            <span class="retro-badge text-white bg-blue">HTML</span>
+                                            <span class="retro-badge text-white bg-blue">CSS</span>
+                                            <span class="retro-badge text-white bg-blue">Javascript</span>
+                                             <span class="retro-badge text-white bg-blue">Php</span>
+                                              <span class="retro-badge text-white bg-blue">Csharp</span>
+                                               <span class="retro-badge text-white bg-blue">C+</span>
+                                                <span class="retro-badge text-white bg-blue">Webflow</span>
+                                                 <span class="retro-badge text-white bg-blue">Wordpress</span>
+                                            <span class="retro-badge text-white bg-blue">MySql</span>
                                         </div>
                                     </div>
                                 </div>
@@ -156,17 +159,82 @@
                             
                             <div class="hero-portrait-container">
                                 <div class="portrait-frame">
-                                    <img src="assets/portrait.png" alt="William Anguile-Diop Portrait" class="portrait-img">
+                                    <img src="assets/profil will.jpg" alt="William Anguile-Diop Portrait" class="portrait-img">
                                     <div class="portrait-markers">
                                         <span class="marker top-left">⌜</span>
                                         <span class="marker top-right">⌝</span>
                                         <span class="marker bottom-left">⌞</span>
                                         <span class="marker bottom-right">⌟</span>
                                     </div>
-                                    <div class="portrait-overlay-text">[PORTRAIT.RAW]</div>
+                                    
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Nouvelle Grille Philosophie, Soft Skills & Passions -->
+                    <div class="intro-details-grid">
+                        
+                        <!-- Bloc Philosophie -->
+                        <div class="card brutal-card-white principles-card">
+                            <div class="card-header">
+                                <h2>Philosophie / 哲学</h2>
+                                <span class="card-tag">PHILOSOPHY</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="grid-layout principles-container" style="grid-template-columns: 1fr 1.2fr; gap: 1.5rem;">
+                                    <div class="principles-selector">
+                                        <button class="principle-btn active" data-concept="wabi-sabi">
+                                            <span><span class="p-num">01.</span> Wabi-Sabi</span>
+                                            <span class="p-ja">侘寂</span>
+                                        </button>
+                                        <button class="principle-btn" data-concept="shibui">
+                                            <span><span class="p-num">02.</span> Shibui</span>
+                                            <span class="p-ja">渋味</span>
+                                        </button>
+                                        <button class="principle-btn" data-concept="yugen">
+                                            <span><span class="p-num">03.</span> Yūgen</span>
+                                            <span class="p-ja">幽玄</span>
+                                        </button>
+                                    </div>
+                                    <div class="principle-details-box">
+                                        <h3 id="principle-title-ja">侘寂 — WABI-SABI</h3>
+                                        <p id="principle-description">L'acceptation de l'imperfection, de l'asymétrie et de l'usure naturelle. Dans mon code, cela se traduit par des textures organiques et des mises en page asymétriques réfléchies.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Bloc Soft Skills & Passions -->
+                        <div class="card brutal-card-white soft-passions-card">
+                            <div class="card-header bg-cream text-black">
+                                <h2>Soft Skills & Passions / 技能</h2>
+                                <span class="card-tag tag-white">PROFIL</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="skills-block" style="margin-top: 0;">
+                                    <div class="skill-category">
+                                        <span class="skill-header">■ SOFT SKILLS</span>
+                                        <div class="badge-row" style="margin-top: 0.5rem;">
+                                            <span class="retro-badge text-white bg-blue">Résolution de Problèmes</span>
+                                            <span class="retro-badge text-white bg-blue">Sens du Détail</span>
+                                            <span class="retro-badge text-white bg-blue">Adaptabilité</span>
+                                            <span class="retro-badge text-white bg-blue">Observateur</span>
+                                            <span class="retro-badge text-white bg-blue">A l'ecoute</span>
+                                             <span class="retro-badge text-white bg-blue">Empathie</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-category mt-3">
+                                        <span class="skill-header">■ PASSIONS</span>
+                                        <ul class="brutalist-list" style="margin-top: 0.5rem;">
+                                            <li><strong>Architecture Brutaliste :</strong> Passion pour les géométries de béton et le métabolisme japonais.</li>
+                                            <li><strong>Design d'Affiches Vintage :</strong> Étude de la typographie suisse et de l'avant-garde nippone.</li>
+                                            <li><strong>Randonnée Urbaine :</strong> Photographie argentique de ruelles à Tokyo et Paris.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </section>
 
@@ -176,81 +244,78 @@
 
                 <!-- SECTION 02: PARCOURS -->
                 <section id="tab-experience" class="scroll-section">
-                    <div class="timeline-container">
-                        <div class="timeline-header-card brutal-card-white">
-                            <h2>Plan de Ligne Professionnel / 経歴路線図</h2>
-                            <p>Parcourez mes escales professionnelles à la manière d'une ligne de transport urbain de Tokyo. Cliquez sur les stations pour dévoiler les détails de chaque arrêt.</p>
-                            <div class="timeline-legend">
-                                <span class="legend-dot dot-active"></span> Station Actuelle
-                                <span class="legend-dot dot-past"></span> Station Passée
-                            </div>
+                    <div class="hero-card brutal-card-white card">
+                        
+                        <div class="hero-header">
+                            <h2 class="hero-title">
+                                Parcours Professionnel
+                                <span class="hero-title-ja">経歴路線図 / ROADMAP</span>
+                            </h2>
                         </div>
-
-                        <!-- Ligne de métro interactive -->
-                        <div class="metro-line-wrapper">
-                            <div class="metro-track">
-                                <div class="metro-progress"></div>
-                            </div>
+                        
+                        <div class="hero-text-content" style="gap: 2.5rem; display: flex; flex-direction: column;">
+                            <p class="lead-text">
+                                Parcourez mes escales professionnelles à la manière d'une ligne de transport urbain de Tokyo. Cliquez sur les stations pour dévoiler les détails de chaque arrêt.
+                            </p>
                             
-                            <!-- Station 1 (Actuelle) -->
-                            <div class="metro-station active" data-exp="exp-current">
-                                <div class="station-node"></div>
-                                <div class="station-label">
-                                    <span class="station-code">TY-01</span>
-                                    <span class="station-name">Shibuya Creative</span>
+                          
+
+                            <!-- Ligne de métro interactive -->
+                            <div class="metro-line-wrapper">
+                                <div class="metro-track">
+                                    <div class="metro-progress"></div>
+                                </div>
+                                
+                                <!-- Station 1 (Actuelle) -->
+                                <div class="metro-station active" data-exp="exp-current">
+                                    <div class="station-node"></div>
+                                    <div class="station-label">
+                                      
+                                        <span class="station-name">Lycee guy de Mautpassant - Colombes 92700</span>
+                                    </div>
+                                </div>
+
+                                <!-- Station 2 -->
+                                <div class="metro-station" data-exp="exp-2">
+                                    <div class="station-node"></div>
+                                    <div class="station-label">
+                                        <span class="station-name">Lycee Parc de Vilgenis - Massy 91300</span>
+                                    </div>
+                                </div>
+
+                                <!-- Station 3 -->
+                                <div class="metro-station" data-exp="exp-3">
+                                    <div class="station-node"></div>
+                                    <div class="station-label">
+                                
+                                        <span class="station-name">My Digital School - 75011 </span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Station 2 -->
-                            <div class="metro-station" data-exp="exp-2">
-                                <div class="station-node"></div>
-                                <div class="station-label">
-                                    <span class="station-code">TY-02</span>
-                                    <span class="station-name">Neo-Tokyo Lab</span>
+                            <!-- Zone de Détails de la Station Sélectionnée -->
+                            <div id="experience-details-box" class="card brutal-card-blue active-exp">
+                                <div class="exp-card-header">
+                                    <div class="exp-meta">
+                                        <span class="exp-date-badge">2020</span>
+                                        <span class="exp-title-h3">Baccalauréat Générale optin NSI et AMC</span>
+                                        <span class="exp-company-ja"></span>
+                                    </div>
+                                    <div class="exp-hanko-seal" id="hanko-seal-container">
+                                        <div class="hanko-seal-verified">検</div>
+                                    </div>
+                                </div>
+                                <div class="exp-card-body">
+                                    <ul class="brutalist-list">
+                                        <li>Direction artistique de sites web interactifs à fort impact pour marques de luxe et culturelles.</li>
+                                        <li>Conception de prototypes interactifs avancés sous Figma et transfert technique rigoureux en CSS.</li>
+                                        <li>Développement de grilles d'information asymétriques optimisées pour tous les formats de terminaux.</li>
+                                        <li>Animation et formation de l'équipe design sur l'accessibilité web et le responsive brut.</li>
+                                    </ul>
                                 </div>
                             </div>
 
-                            <!-- Station 3 -->
-                            <div class="metro-station" data-exp="exp-3">
-                                <div class="station-node"></div>
-                                <div class="station-label">
-                                    <span class="station-code">TY-03</span>
-                                    <span class="station-name">Osaka Foundry</span>
-                                </div>
-                            </div>
-
-                            <!-- Station 4 -->
-                            <div class="metro-station" data-exp="exp-4">
-                                <div class="station-node"></div>
-                                <div class="station-label">
-                                    <span class="station-code">TY-04</span>
-                                    <span class="station-name">Digital Dojo</span>
-                                </div>
-                            </div>
                         </div>
-
-                        <!-- Zone de Détails de la Station Sélectionnée -->
-                        <div id="experience-details-box" class="card brutal-card-red active-exp">
-                            <div class="exp-card-header">
-                                <div class="exp-meta">
-                                    <span class="exp-date-badge">2024 - PRÉSENT</span>
-                                    <span class="exp-title-h3">Designer UI & Creative Dev Lead</span>
-                                    <span class="exp-company-ja">渋谷クリエイティブ / Shibuya Creative Studio</span>
-                                </div>
-                                <div class="exp-hanko-seal" id="hanko-seal-container">
-                                    <div class="hanko-seal-verified">検</div>
-                                </div>
-                            </div>
-                            <div class="exp-card-body">
-                                <ul class="brutalist-list">
-                                    <li>Direction artistique de sites web interactifs à fort impact pour marques de luxe et culturelles.</li>
-                                    <li>Conception de prototypes interactifs avancés sous Figma et transfert technique rigoureux en CSS.</li>
-                                    <li>Développement de grilles d'information asymétriques optimisées pour tous les formats de terminaux.</li>
-                                    <li>Animation et formation de l'équipe design sur l'accessibilité web et le responsive brut.</li>
-                                </ul>
-                            </div>
-                        </div>
-
                     </div>
                 </section>
 
@@ -260,82 +325,113 @@
 
                 <!-- SECTION 03: PROJETS -->
                 <section id="tab-projects" class="scroll-section">
-                    <div class="projects-intro brutal-card-white">
-                        <h2>Œuvres & Maquettes d'Interfaces / 作品集</h2>
-                        <p>Une galerie de projets web mettant en relief le wireframing, la typographie et l'harmonie des proportions.</p>
-                    </div>
-
-                    <div class="grid-layout projects-grid">
+                    <div class="hero-card brutal-card-white card">
                         
-                        <!-- Projet 1 -->
-                        <div class="card project-card brutal-card-white">
-                            <div class="project-img-wrapper">
-                                <img src="assets/project_tokyo_chronicles.png" alt="Neo-Tokyo Chronicles" class="project-img">
-                                <div class="project-status-sticker">UI/UX DESIGN + DEV</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="project-price-tag">LIVRABLE: PROTOTYPE FIGMA + WebGL</div>
-                                <h3 class="project-title">Neo-Tokyo Chronicles / ネオ東京</h3>
-                                <p class="project-desc">Conception de l'architecture de l'information et d'une interface immersive en 3D explorant la géographie urbaine et poétique de Tokyo.</p>
-                                <div class="project-tags">
-                                    <span class="tag-item">Figma Design System</span>
-                                    <span class="tag-item">Three.js Integration</span>
-                                    <span class="tag-item">GLSL Grid Layout</span>
+                        <div class="hero-header">
+                            <h2 class="hero-title">
+                                Mes projets
+                                
+                            </h2>
+                        </div>
+                        
+                        <div class="hero-text-content" style="gap: 2.5rem; display: flex; flex-direction: column;">
+                            <p class="lead-text">
+                                Une galerie de projets web mettant en relief le wireframing, la typographie et l'harmonie des proportions.
+                            </p>
+                            
+                            <div class="grid-layout projects-grid" style="max-width: 100%;">
+                                
+                                <!-- Projet 1 -->
+                                <div class="card project-card brutal-card-white">
+                                    <div class="project-img-wrapper">
+                                        <img src="assets/projet vol.png" alt="Neo-Tokyo Chronicles" class="project-img">
+                                        <div class="project-status-sticker">UI/UX DESIGN + DEV</div>
+                                    </div>
+                                    <div class="card-body">
+                                       
+                                        <h3 class="project-title">Site de voyage</h3>
+                                        <p class="project-desc">Maquette pour un site de reservation de vol.</p>
+                                        <div class="project-tags">
+                                            <span class="tag-item">Figma Design System</span>
+                                            <span class="tag-item">Three.js Integration</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer-project">
+                                        <a href="project-tokyo.html" class="retro-btn btn-full btn-red btn-project-link">
+                                            VOIR LE PROJET ↗
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-footer-project">
-                                <a href="#" class="retro-btn btn-full btn-red btn-project-link">
-                                    VOIR LE DESIGN SYSTEM ↗
-                                </a>
+
+                                <!-- Projet 2 -->
+                                <div class="card project-card brutal-card-white">
+                                    <div class="project-img-wrapper">
+                                        <img src="assets/projet vva.png" alt="Shibuya Synth" class="project-img">
+                                        <div class="project-status-sticker">INTERFACE DESIGN</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="project-title">projet V.V.A </h3>
+                                        <p class="project-desc">Site de réservation d'hébergement d'un village de vacance dans les Alpes avec fonctionnalités différentes selon les comptes( Vacancier, Gestionnaire, Admin)</p>
+                                        <div class="project-tags">
+                                            <span class="tag-item">UI Layout System</span>
+                                            <span class="tag-item">Web Audio UI</span>
+                                            <span class="tag-item">Tailored Icons</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer-project">
+                                        <a href="#" class="retro-btn btn-full btn-red btn-project-link">
+                                            VOIR LE PROJET ↗
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Projet 3 -->
+                                <div class="card project-card brutal-card-white">
+                                    <div class="project-img-wrapper">
+                                        <img src="assets/atelier simon.png" alt="Hanko Protocol" class="project-img">
+                                        <div class="project-status-sticker">BRAND IDENTITY + UI</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="project-title">Atelier Simon</h3>
+                                        <p class="project-desc">Renovation d'un site dpour un atelier de renovation de tableaux.</p>
+                                        <div class="project-tags">
+                                            <span class="tag-item">Identity Design</span>
+                                            <span class="tag-item">SVG Manipulation</span>
+                                            <span class="tag-item">Responsive UI</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer-project">
+                                        <a href="#" class="retro-btn btn-full btn-red btn-project-link">
+                                            VOIR LE PROJET ↗
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Projet 4 -->
+                                <div class="card project-card brutal-card-white">
+                                    <div class="project-img-wrapper">
+                                        <img src="assets/hapto.png" alt="Hanko Protocol" class="project-img">
+                                        <div class="project-status-sticker">BRAND IDENTITY + UI</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <h3 class="project-title">HAPTOKIDS </h3>
+                                        <p class="project-desc">Identité visuelle complète et interface générative permettant la création de signatures vectorielles authentiques sous format SVG.</p>
+                                        <div class="project-tags">
+                                            <span class="tag-item">Identity Design</span>
+                                            <span class="tag-item">SVG Manipulation</span>
+                                            <span class="tag-item">Responsive UI</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer-project">
+                                        <a href="#" class="retro-btn btn-full btn-red btn-project-link">
+                                            VOIR LE PROJET ↗
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-
-                        <!-- Projet 2 -->
-                        <div class="card project-card brutal-card-white">
-                            <div class="project-img-wrapper">
-                                <img src="assets/project_shibuya_synth.png" alt="Shibuya Synth" class="project-img">
-                                <div class="project-status-sticker">INTERFACE DESIGN</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="project-price-tag">LIVRABLE: MAQUETTE COMPOSANTS</div>
-                                <h3 class="project-title">Shibuya Synthesis / 渋谷音響</h3>
-                                <p class="project-desc">Conception visuelle d'un panneau de contrôle modulaire de synthèse audio minimaliste, avec une attention forte portée aux états d'interaction.</p>
-                                <div class="project-tags">
-                                    <span class="tag-item">UI Layout System</span>
-                                    <span class="tag-item">Web Audio UI</span>
-                                    <span class="tag-item">Tailored Icons</span>
-                                </div>
-                            </div>
-                            <div class="card-footer-project">
-                                <a href="#" class="retro-btn btn-full btn-green btn-project-link">
-                                    VOIR LES WIREFRAMES ↗
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Projet 3 -->
-                        <div class="card project-card brutal-card-white">
-                            <div class="project-img-wrapper">
-                                <img src="assets/project_hanko_protocol.png" alt="Hanko Protocol" class="project-img">
-                                <div class="project-status-sticker">BRAND IDENTITY + UI</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="project-price-tag">LIVRABLE: CHARTE GRAPHIQUE + SVG</div>
-                                <h3 class="project-title">Hanko Protocol / 判子署名</h3>
-                                <p class="project-desc">Identité visuelle complète et interface générative permettant la création de signatures vectorielles authentiques sous format SVG.</p>
-                                <div class="project-tags">
-                                    <span class="tag-item">Identity Design</span>
-                                    <span class="tag-item">SVG Manipulation</span>
-                                    <span class="tag-item">Responsive UI</span>
-                                </div>
-                            </div>
-                            <div class="card-footer-project">
-                                <a href="#" class="retro-btn btn-full btn-black btn-project-link">
-                                    VOIR L'ÉTUDE DE CAS ↗
-                                </a>
-                            </div>
-                        </div>
-
+                        
                     </div>
                 </section>
 
@@ -349,7 +445,7 @@
                         
                         <!-- Formulaire Style Bordereau Postal -->
                         <div class="card brutal-card-white contact-form-card">
-                            <div class="card-header bg-red text-white">
+                            <div class="card-header bg-blue text-white">
                                 <h2>Bordereau de Message / 連絡用紙</h2>
                                 <span class="card-tag tag-white">POSTAL FORM</span>
                             </div>
@@ -392,7 +488,7 @@
                         <!-- Fiche officielle de transmission qui apparaît après envoi -->
                         <div class="contact-info-panel">
                             <!-- Ticket d'information standard -->
-                            <div class="card brutal-card-red info-post-card">
+                            <div class="card brutal-card-blue info-post-card">
                                 <div class="card-header">
                                     <h3>Informations Réseau / 連絡先</h3>
                                 </div>
@@ -408,7 +504,7 @@
                                         </li>
                                         <li>
                                             <span class="net-lbl">LinkedIn :</span>
-                                            <a href="https://linkedin.com/in/wanguilediop" target="_blank" class="net-val">linkedin.com/in/wanguilediop</a>
+                                            <a href="https://www.linkedin.com/in/williamanguilediop/" target="_blank" class="net-val">linkedin.com/in/wanguilediop</a>
                                         </li>
                                         <li>
                                             <span class="net-lbl">Localisation :</span>
