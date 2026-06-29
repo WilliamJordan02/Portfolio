@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Anguile-Diop — Web Designer & Creative Developer</title>
+    <meta name="description" content="Portfolio de William Anguile-Diop, Web Designer & Concepteur d'Interfaces.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Serif+JP:wght@600;900&family=Orbitron:wght@700;900&family=Quantico:wght@700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Écran de Chargement Brutaliste -->
+    <div id="brutalist-loader">
+        <div class="loader-content">
+            <div class="logo-area loader-logo">
+                <div class="hanko-stamp">WA</div>
+                <div class="logo-subtitle">ウィリアム</div>
+            </div>
+
+            <div class="loader-progress-box">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-status">INITIALIZING...</div>
+        </div>
+    </div>
+    <!-- Overlay Grain de Papier Rétro -->
+    <div class="paper-overlay"></div>
+
+    <!-- Conteneur de Particules Sakura (Fleurs de Cerisier) -->
+    <div id="sakura-container"></div>
+
+    <!-- Conteneur Principal -->
+    <div class="app-container">
+        
+        <!-- Barre Latérale Gauche - Style Affiche Japonaise -->
+        <aside class="sidebar-left">
+            <div class="logo-area">
+                <div class="hanko-stamp">WA</div>
+                <div class="logo-title">W.ANGUILE-DIOP</div>
+                <div class="logo-subtitle">ウィリアム</div>
+            </div>
+            
+            <div class="vertical-text-container">
+                <span class="vertical-text-item">ウェブデザイナー • 設計士</span>
+                <span class="vertical-text-divider"></span>
+                <span class="vertical-text-item latin">INTERFACE ARTISAN ©2026</span>
+            </div>
+
+             <div class="oriental-accent-stamp">
+                <div class="accent-circle"></div>
+                <div class="accent-line"></div>
+                <div class="accent-kanji">寿</div>
+            </div>
+        </aside>
+
+        <!-- Zone Principale de Contenu -->
+        <main class="main-content">
+            
+            <!-- En-tête Supérieur (Fixe) -->
+            <header class="main-header">
+                <div class="header-banner">
+                    <span class="banner-ticker">
+                        PROJETS DISPONIBLES • UI/UX CONCEPTION • DISPONIBLE POUR CONTRATS • CREATIVE DESIGN • GRID SYSTEMS • JAPANESE INSPIRATION • 
+                        PROJETS DISPONIBLES • UI/UX CONCEPTION • DISPONIBLE POUR CONTRATS • CREATIVE DESIGN • GRID SYSTEMS • JAPANESE INSPIRATION • 
+                    </span>
+                </div>
+                
+              
+
+                <div class="header-main-title">
+                    <div class="title-left">
+                        <span class="subtitle-badge">DISPONIBLE POUR CONTRATS</span>
+                        
+                    </div>
+                    <nav class="classic-nav">
+                    <a href="#tab-intro" class="nav-link active">
+                        <span class="nav-text">A PROPOS</span>
+                        <span class="nav-ja">自己紹介</span>
+                    </a>
+                    <a href="#tab-experience" class="nav-link">
+                        <span class="nav-text">PARCOURS</span>
+                        <span class="nav-ja">経歴</span>
+                    </a>
+                    <a href="#tab-projects" class="nav-link">
+                        <span class="nav-text">MES PROJETS</span>
+                        <span class="nav-ja">作品</span>
+                    </a>
+                    <a href="#tab-contact" class="nav-link">
+                        <span class="nav-text">CONTACT</span>
+                        <span class="nav-ja">連絡先</span>
+                    </a>
+                </nav>
+                    <div class="title-right">
+                        <div class="utility-controls">
+
+                            <!-- Contrôle Sakura -->
+                            <button id="toggle-sakura" class="util-btn active" title="Activer/Désactiver Sakura">
+                                <span class="btn-icon">🌸</span>
+                                <span class="btn-text">SAKURA: ON</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sections de Contenu Défilantes -->
+            <div class="content-body">
+                
+                <!-- SECTION 01: INTRO (BIO & PORTRAIT) -->
+                <section id="tab-intro" class="scroll-section">
+                    <div class="hero-card brutal-card-white card">
+                        <div class="hero-header">
+                            <h1 class="hero-title">
+                                WILLIAM ANGUILE-DIOP
+                                <span class="hero-title-ja">ウィリアム</span>
+                            </h1>
+                            
+                        </div>
+                        
+                        <div class="hero-grid">
+                            <div class="hero-text-content">
+                                <p class="lead-text">
+                                    Je suis William Anguile-Diop, web designer et artisan d'interfaces spécialisé dans la direction artistique asymétrique et la mise en page brutaliste.
+                                </p>
+                                <p>
+                                    À mi-chemin entre le prototypage sous Figma et le développement frontend rigoureux (HTML/CSS brut, Javascript moderne), je construis des systèmes de design qui mettent en avant la typographie et la lisibilité géométrique. Mon approche s'inspire du design d'affiches vintage et de l'architecture d'après-guerre japonaise.
+                                </p>
+                                <p>
+                                    Je refuse le web uniforme. En appliquant des principes d'espacement stricts et des repères structurels nets, je crée des objets numériques marquants et fonctionnels, parfaitement adaptés aux résolutions d'écran d'aujourd'hui.
+                                </p>
+                                
+                                <div class="skills-block">
+                                    <div class="skill-category">
+                                        <span class="skill-header">■ DESIGN & UI</span>
+                                        <div class="badge-row">
+                                            <span class="retro-badge text-black bg-cream">UI/UX Design</span>
+                                            <span class="retro-badge text-black bg-cream">Typographie</span>
+                                            <span class="retro-badge text-black bg-cream">Figma Mastery</span>
+                                            <span class="retro-badge text-black bg-cream">Wireframing</span>
+                                        </div>
+                                    </div>
+                                    <div class="skill-category mt-3">
+                                        <span class="skill-header">■ DÉVELOPPEMENT WEB</span>
+                                        <div class="badge-row">
+                                            <span class="retro-badge text-white bg-dark-badge">HTML / CSS Brut</span>
+                                            <span class="retro-badge text-white bg-dark-badge">Javascript Moderne</span>
+                                            <span class="retro-badge text-white bg-dark-badge">React / Vue</span>
+                                            <span class="retro-badge text-white bg-dark-badge">WebGL / Three.js</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="hero-portrait-container">
+                                <div class="portrait-frame">
+                                    <img src="assets/portrait.png" alt="William Anguile-Diop Portrait" class="portrait-img">
+                                    <div class="portrait-markers">
+                                        <span class="marker top-left">⌜</span>
+                                        <span class="marker top-right">⌝</span>
+                                        <span class="marker bottom-left">⌞</span>
+                                        <span class="marker bottom-right">⌟</span>
+                                    </div>
+                                    <div class="portrait-overlay-text">[PORTRAIT.RAW]</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="section-divider">
+                    <span class="divider-text">SECTION 02 — 経歴路線図</span>
+                </div>
+
+                <!-- SECTION 02: PARCOURS -->
+                <section id="tab-experience" class="scroll-section">
+                    <div class="timeline-container">
+                        <div class="timeline-header-card brutal-card-white">
+                            <h2>Plan de Ligne Professionnel / 経歴路線図</h2>
+                            <p>Parcourez mes escales professionnelles à la manière d'une ligne de transport urbain de Tokyo. Cliquez sur les stations pour dévoiler les détails de chaque arrêt.</p>
+                            <div class="timeline-legend">
+                                <span class="legend-dot dot-active"></span> Station Actuelle
+                                <span class="legend-dot dot-past"></span> Station Passée
+                            </div>
+                        </div>
+
+                        <!-- Ligne de métro interactive -->
+                        <div class="metro-line-wrapper">
+                            <div class="metro-track">
+                                <div class="metro-progress"></div>
+                            </div>
+                            
+                            <!-- Station 1 (Actuelle) -->
+                            <div class="metro-station active" data-exp="exp-current">
+                                <div class="station-node"></div>
+                                <div class="station-label">
+                                    <span class="station-code">TY-01</span>
+                                    <span class="station-name">Shibuya Creative</span>
+                                </div>
+                            </div>
+
+                            <!-- Station 2 -->
+                            <div class="metro-station" data-exp="exp-2">
+                                <div class="station-node"></div>
+                                <div class="station-label">
+                                    <span class="station-code">TY-02</span>
+                                    <span class="station-name">Neo-Tokyo Lab</span>
+                                </div>
+                            </div>
+
+                            <!-- Station 3 -->
+                            <div class="metro-station" data-exp="exp-3">
+                                <div class="station-node"></div>
+                                <div class="station-label">
+                                    <span class="station-code">TY-03</span>
+                                    <span class="station-name">Osaka Foundry</span>
+                                </div>
+                            </div>
+
+                            <!-- Station 4 -->
+                            <div class="metro-station" data-exp="exp-4">
+                                <div class="station-node"></div>
+                                <div class="station-label">
+                                    <span class="station-code">TY-04</span>
+                                    <span class="station-name">Digital Dojo</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zone de Détails de la Station Sélectionnée -->
+                        <div id="experience-details-box" class="card brutal-card-red active-exp">
+                            <div class="exp-card-header">
+                                <div class="exp-meta">
+                                    <span class="exp-date-badge">2024 - PRÉSENT</span>
+                                    <span class="exp-title-h3">Designer UI & Creative Dev Lead</span>
+                                    <span class="exp-company-ja">渋谷クリエイティブ / Shibuya Creative Studio</span>
+                                </div>
+                                <div class="exp-hanko-seal" id="hanko-seal-container">
+                                    <div class="hanko-seal-verified">検</div>
+                                </div>
+                            </div>
+                            <div class="exp-card-body">
+                                <ul class="brutalist-list">
+                                    <li>Direction artistique de sites web interactifs à fort impact pour marques de luxe et culturelles.</li>
+                                    <li>Conception de prototypes interactifs avancés sous Figma et transfert technique rigoureux en CSS.</li>
+                                    <li>Développement de grilles d'information asymétriques optimisées pour tous les formats de terminaux.</li>
+                                    <li>Animation et formation de l'équipe design sur l'accessibilité web et le responsive brut.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <div class="section-divider">
+                    <span class="divider-text">SECTION 03 — 作品集</span>
+                </div>
+
+                <!-- SECTION 03: PROJETS -->
+                <section id="tab-projects" class="scroll-section">
+                    <div class="projects-intro brutal-card-white">
+                        <h2>Œuvres & Maquettes d'Interfaces / 作品集</h2>
+                        <p>Une galerie de projets web mettant en relief le wireframing, la typographie et l'harmonie des proportions.</p>
+                    </div>
+
+                    <div class="grid-layout projects-grid">
+                        
+                        <!-- Projet 1 -->
+                        <div class="card project-card brutal-card-white">
+                            <div class="project-img-wrapper">
+                                <img src="assets/project_tokyo_chronicles.png" alt="Neo-Tokyo Chronicles" class="project-img">
+                                <div class="project-status-sticker">UI/UX DESIGN + DEV</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="project-price-tag">LIVRABLE: PROTOTYPE FIGMA + WebGL</div>
+                                <h3 class="project-title">Neo-Tokyo Chronicles / ネオ東京</h3>
+                                <p class="project-desc">Conception de l'architecture de l'information et d'une interface immersive en 3D explorant la géographie urbaine et poétique de Tokyo.</p>
+                                <div class="project-tags">
+                                    <span class="tag-item">Figma Design System</span>
+                                    <span class="tag-item">Three.js Integration</span>
+                                    <span class="tag-item">GLSL Grid Layout</span>
+                                </div>
+                            </div>
+                            <div class="card-footer-project">
+                                <a href="#" class="retro-btn btn-full btn-red btn-project-link">
+                                    VOIR LE DESIGN SYSTEM ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Projet 2 -->
+                        <div class="card project-card brutal-card-white">
+                            <div class="project-img-wrapper">
+                                <img src="assets/project_shibuya_synth.png" alt="Shibuya Synth" class="project-img">
+                                <div class="project-status-sticker">INTERFACE DESIGN</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="project-price-tag">LIVRABLE: MAQUETTE COMPOSANTS</div>
+                                <h3 class="project-title">Shibuya Synthesis / 渋谷音響</h3>
+                                <p class="project-desc">Conception visuelle d'un panneau de contrôle modulaire de synthèse audio minimaliste, avec une attention forte portée aux états d'interaction.</p>
+                                <div class="project-tags">
+                                    <span class="tag-item">UI Layout System</span>
+                                    <span class="tag-item">Web Audio UI</span>
+                                    <span class="tag-item">Tailored Icons</span>
+                                </div>
+                            </div>
+                            <div class="card-footer-project">
+                                <a href="#" class="retro-btn btn-full btn-green btn-project-link">
+                                    VOIR LES WIREFRAMES ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Projet 3 -->
+                        <div class="card project-card brutal-card-white">
+                            <div class="project-img-wrapper">
+                                <img src="assets/project_hanko_protocol.png" alt="Hanko Protocol" class="project-img">
+                                <div class="project-status-sticker">BRAND IDENTITY + UI</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="project-price-tag">LIVRABLE: CHARTE GRAPHIQUE + SVG</div>
+                                <h3 class="project-title">Hanko Protocol / 判子署名</h3>
+                                <p class="project-desc">Identité visuelle complète et interface générative permettant la création de signatures vectorielles authentiques sous format SVG.</p>
+                                <div class="project-tags">
+                                    <span class="tag-item">Identity Design</span>
+                                    <span class="tag-item">SVG Manipulation</span>
+                                    <span class="tag-item">Responsive UI</span>
+                                </div>
+                            </div>
+                            <div class="card-footer-project">
+                                <a href="#" class="retro-btn btn-full btn-black btn-project-link">
+                                    VOIR L'ÉTUDE DE CAS ↗
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <div class="section-divider">
+                    <span class="divider-text">SECTION 04 — 連絡先</span>
+                </div>
+
+                <!-- SECTION 04: CONTACT -->
+                <section id="tab-contact" class="scroll-section">
+                    <div class="grid-layout contact-grid">
+                        
+                        <!-- Formulaire Style Bordereau Postal -->
+                        <div class="card brutal-card-white contact-form-card">
+                            <div class="card-header bg-red text-white">
+                                <h2>Bordereau de Message / 連絡用紙</h2>
+                                <span class="card-tag tag-white">POSTAL FORM</span>
+                            </div>
+                            <div class="card-body">
+                                <form id="brutalist-contact-form" onsubmit="return false;">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="form-name">Nom de l'Expéditeur / 氏名 <span class="required">*</span></label>
+                                            <input type="text" id="form-name" required placeholder="ex: Jean Dupont" class="brutalist-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="form-email">Adresse Courriel / メール <span class="required">*</span></label>
+                                            <input type="email" id="form-email" required placeholder="ex: jean@dupont.fr" class="brutalist-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="form-subject">Sujet du Message / 件名</label>
+                                            <input type="text" id="form-subject" placeholder="ex: Opportunité de projet" class="brutalist-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="form-message">Message / 本文 <span class="required">*</span></label>
+                                            <textarea id="form-message" required rows="6" placeholder="Saisissez votre texte ici..." class="brutalist-input"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-submit-row">
+                                        <button type="submit" class="retro-btn btn-full btn-red btn-submit-form">
+                                            <span class="btn-text">TRANSMETTRE LE MESSAGE / 送信</span>
+                                            <span class="hanko-btn-seal">佐藤</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Fiche officielle de transmission qui apparaît après envoi -->
+                        <div class="contact-info-panel">
+                            <!-- Ticket d'information standard -->
+                            <div class="card brutal-card-red info-post-card">
+                                <div class="card-header">
+                                    <h3>Informations Réseau / 連絡先</h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="network-list">
+                                        <li>
+                                            <span class="net-lbl">Courriel :</span>
+                                            <a href="mailto:contact@anguile-diop.dev" class="net-val">contact@anguile-diop.dev</a>
+                                        </li>
+                                        <li>
+                                            <span class="net-lbl">GitHub :</span>
+                                            <a href="https://github.com/wanguilediop" target="_blank" class="net-val">github.com/wanguilediop</a>
+                                        </li>
+                                        <li>
+                                            <span class="net-lbl">LinkedIn :</span>
+                                            <a href="https://linkedin.com/in/wanguilediop" target="_blank" class="net-val">linkedin.com/in/wanguilediop</a>
+                                        </li>
+                                        <li>
+                                            <span class="net-lbl">Localisation :</span>
+                                            <span class="net-val">Tokyo / Paris (Remote)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer bg-black text-white text-center font-bold barcode-footer">
+                                   
+                            </div>
+
+                            <!-- Fiche Officielle Minimaliste (masquée par défaut, révélée après envoi) -->
+                            <div id="contact-receipt" class="retro-receipt official-sheet hidden">
+                                <div class="receipt-cut"></div>
+                                <div class="receipt-body">
+                                    <div class="receipt-header">
+                                        <h4>送信票 — FICHE DE TRANSMISSION</h4>
+                                        <p class="receipt-sub">COMMUNICATION DOCUMENT</p>
+                                    </div>
+                                    <hr class="receipt-dash">
+                                    <div class="receipt-info">
+                                        <div class="receipt-row">
+                                            <span>DATE D'ENVOI :</span>
+                                            <span id="receipt-date">2026-06-25</span>
+                                        </div>
+                                        <div class="receipt-row">
+                                            <span>ÉMETTEUR :</span>
+                                            <span id="receipt-sender">-</span>
+                                        </div>
+                                        <div class="receipt-row">
+                                            <span>STATUT :</span>
+                                            <span class="receipt-success">TRANSMIS avec succès</span>
+                                        </div>
+                                    </div>
+                                    <hr class="receipt-dash">
+                                    <div class="receipt-msg-box">
+                                        <p class="receipt-msg-title">CONTENU DU MESSAGE :</p>
+                                        <p id="receipt-msg-body" class="receipt-msg-content">...</p>
+                                    </div>
+                                    <hr class="receipt-dash">
+                                    <div class="receipt-footer">
+                                        <p>Ce document confirme la bonne réception de vos données.</p>
+                                        <div class="receipt-stamp">受領</div>
+                                        <div class="receipt-barcode"></div>
+                                        <p class="receipt-serial">DOC-REF: JP-BTL-2026-04E0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Pied de page -->
+            <footer class="main-footer brutal-card-white">
+                <div class="footer-left">
+                    <p>© 2026 William Anguile-Diop. Tous droits réservés. Développé avec rigueur et passion. | <a href="mentions.html" style="color: var(--text-dark); font-weight: bold;">Mentions Légales</a></p>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-stickers">
+                        <span class="sticker-tag sticker-red">WEB-STANDARDS</span>
+                        <span class="sticker-tag sticker-black">NO-FRAMEWORK</span>
+                        <span class="sticker-tag sticker-green">WABI-SABI</span>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+        
+
+
+    </div>
+
+    <!-- Script principal -->
+    <script src="app.js"></script>
+</body>
+</html>

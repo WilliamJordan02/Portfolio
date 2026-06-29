@@ -1,0 +1,1187 @@
+/* ==========================================================================
+   CHARTE GRAPHIQUE & DESIGN SYSTEM BRUTALISTE JAPONAIS - VERSION MONOPAGE
+   ========================================================================== */
+
+:root {
+    /* Thème par défaut (Rouge Vermillon) */
+    --bg-cream: #f2efe9;       
+    --bg-paper-dark: #ebe7df;  
+    --text-dark: #121212;      
+    --text-white: #ffffff;
+    --accent-color: #d1382e;   /* Rouge par défaut */
+    --accent-red: #d1382e;     
+    --accent-green: #275a44;   
+    --accent-pink: #d91b7d;    
+    --border-width: 3px;
+    --border-color: #121212;
+    
+    /* Ombres Brutalistes Plates */
+    --shadow-flat: 5px 5px 0px 0px #121212;
+    --shadow-flat-large: 8px 8px 0px 0px #121212;
+    --shadow-flat-pressed: 2px 2px 0px 0px #121212;
+    
+    /* Polices */
+    --font-heading: 'Quantico', 'Orbitron', 'Space Grotesk', sans-serif;
+    --font-title-massive: 'Dela Gothic One', 'Orbitron', sans-serif;
+    --font-body: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    --font-japanese: 'Noto Serif JP', 'Sawarabi Mincho', serif;
+
+    /* Blueprint / Wireframe */
+    --wireframe-blue: #0055ff;
+}
+
+/* ==========================================================================
+   THEMING DYNAMIQUE (CLASSES APPLIQUÉES AU BODY)
+   ========================================================================== */
+
+body.theme-red { --accent-color: var(--accent-red); }
+body.theme-green { --accent-color: var(--accent-green); }
+body.theme-pink { --accent-color: var(--accent-pink); }
+body.theme-dark { --accent-color: var(--text-dark); }
+
+/* ==========================================================================
+   RESET & STRUCTURES DE BASE
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 240px; /* Compense la hauteur du header fixe */
+    font-size: 18px; /* Augmente proportionnellement TOUS les rem du site (base 16px -> 18px) */
+}
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: 1.125rem; /* Augmentation globale de la taille du texte */
+    line-height: 1.75;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+/* Grain de papier vintage */
+.paper-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Grille Genkō yōshi discrète en arrière-plan */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    pointer-events: none;
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(18, 18, 18, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(18, 18, 18, 0.03) 1px, transparent 1px);
+}
+
+/* ==========================================================================
+   DISPOSITION PRINCIPALE (LAYOUT)
+   ========================================================================== */
+
+.app-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   BARRE LATÉRALE GAUCHE (SIDEBAR-LEFT)
+   ========================================================================== */
+
+.sidebar-left {
+    background-color: var(--bg-paper-dark);
+    border-right: var(--border-width) solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.hanko-stamp {
+    width: 65px;
+    height: 65px;
+    border: 3px solid var(--accent-red);
+    color: var(--accent-red);
+    font-family: var(--font-japanese);
+    font-size: 2.2rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 2px var(--accent-red);
+    transform: rotate(-10deg);
+    transition: transform 0.3s ease;
+}
+
+.hanko-stamp:hover { transform: rotate(5deg) scale(1.05); }
+
+.logo-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+}
+
+.logo-subtitle {
+    font-family: var(--font-japanese);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: rgba(18, 18, 18, 0.6);
+}
+
+.vertical-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    margin: 1.5rem 0;
+}
+
+.vertical-text-item {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--font-japanese);
+    font-size: 1.1rem;
+    letter-spacing: 6px;
+    color: var(--text-dark);
+    margin: 0.5rem 0;
+    white-space: nowrap;
+}
+
+.vertical-text-item.latin {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.vertical-text-divider {
+    height: 50px;
+    width: 2px;
+    background-color: var(--border-color);
+    margin: 0.8rem 0;
+}
+
+/* Sélecteur de couleurs (Design palette) */
+.color-palette-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.palette-label {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: rgba(18, 18, 18, 0.6);
+}
+
+.palette-swatches {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.swatch-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--text-dark);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.swatch-btn:hover { transform: scale(1.15); }
+.swatch-btn.active {
+    box-shadow: 0 0 0 2px var(--bg-cream), 0 0 0 4px var(--text-dark);
+    transform: scale(1.1);
+}
+
+.bg-red-swatch { background-color: var(--accent-red); }
+.bg-green-swatch { background-color: var(--accent-green); }
+.bg-pink-swatch { background-color: var(--accent-pink); }
+.bg-dark-swatch { background-color: var(--text-dark); }
+
+.sidebar-deco {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.barcode {
+    display: flex;
+    align-items: flex-end;
+    height: 30px;
+    width: 80px;
+    gap: 2px;
+}
+
+.barcode-line { background-color: var(--text-dark); height: 100%; }
+.w-1 { width: 1px; }
+.w-2 { width: 3px; }
+.w-3 { width: 5px; }
+.w-4 { width: 7px; }
+
+.deco-number {
+    font-family: monospace;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   BARRE LATÉRALE DROITE (SIDEBAR-RIGHT)
+   ========================================================================== */
+
+.sidebar-right {
+    border-left: var(--border-width) solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 0;
+    background-color: var(--bg-paper-dark);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.grid-deco-lines {
+    width: 20px;
+    height: 100px;
+    background: repeating-linear-gradient(45deg, var(--border-color), var(--border-color) 2px, transparent 2px, transparent 8px);
+}
+
+.viewport-widget {
+    border: 2px solid var(--text-dark);
+    background-color: var(--bg-cream);
+    padding: 0.8rem 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 60px;
+    box-shadow: 3px 3px 0px 0px var(--text-dark);
+}
+
+.widget-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+    color: rgba(18, 18, 18, 0.6);
+}
+
+.widget-val {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+
+.widget-status {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.5rem;
+    background-color: var(--text-dark);
+    color: var(--bg-cream);
+    padding: 0.1rem 0.2rem;
+    white-space: nowrap;
+}
+
+.oriental-accent-stamp {
+    position: relative;
+    width: 40px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accent-circle {
+    width: 25px;
+    height: 25px;
+    background-color: var(--accent-red);
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.accent-kanji {
+    font-family: var(--font-japanese);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--accent-red);
+    border: 2px solid var(--accent-red);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================================================
+   ZONE PRINCIPALE & HEADER FIXE
+   ========================================================================== */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; 
+}
+
+.main-header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-cream);
+    z-index: 90;
+}
+
+.header-banner {
+    background-color: var(--text-dark);
+    color: var(--bg-cream);
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding: 0.6rem 0;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.banner-ticker {
+    display: inline-block;
+    animation: ticker 25s linear infinite;
+    padding-left: 100%;
+}
+
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.header-main-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem 1rem 3rem;
+    border-bottom: var(--border-width) solid var(--border-color);
+}
+
+.title-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subtitle-badge {
+    background-color: var(--accent-color);
+    color: var(--text-white);
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    width: fit-content;
+    border: 2px solid var(--text-dark);
+    transition: background-color 0.3s ease;
+}
+
+.title-left h1 {
+    font-family: var(--font-japanese);
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.utility-controls {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.util-btn {
+    background-color: var(--bg-cream);
+    border: 2px solid var(--text-dark);
+    color: var(--text-dark);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 3px 3px 0px 0px var(--text-dark);
+    transition: all 0.15s ease;
+}
+
+.util-btn:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px 0px var(--text-dark);
+}
+
+.util-btn.active {
+    background-color: var(--accent-pink);
+    color: var(--text-white);
+}
+
+#toggle-wireframe.active {
+    background-color: var(--wireframe-blue);
+    color: var(--text-white);
+}
+
+/* ==========================================================================
+   NAVIGATION CLASSIQUE (TOP BAR)
+   ========================================================================== */
+
+.classic-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4.5rem;
+    padding: 1.2rem 3rem;
+    background-color: var(--bg-cream);
+    border-bottom: none;
+}
+
+.nav-link {
+    font-family: var(--font-title-massive);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 0.4rem;
+    transition: color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.nav-ja {
+    font-family: var(--font-japanese);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(18, 18, 18, 0.5);
+    transition: color 0.2s ease;
+    text-transform: none;
+}
+
+.nav-link:hover .nav-ja {
+    color: rgba(209, 56, 46, 0.7);
+}
+
+.nav-link.active .nav-ja {
+    color: var(--accent-red);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--accent-red);
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.nav-link:hover {
+    color: var(--accent-red);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--accent-red);
+}
+
+/* ==========================================================================
+   SECTIONS & CONTENU MONOPAGE
+   ========================================================================== */
+
+.content-body {
+    padding: 3rem;
+    flex-grow: 1;
+}
+
+.scroll-section {
+    padding-bottom: 6rem;
+}
+
+.section-divider {
+    border-top: var(--border-width) solid var(--border-color);
+    border-bottom: var(--border-width) solid var(--border-color);
+    margin: 4rem -3rem 6rem -3rem; /* Outdents to edge, espacement accru */
+    padding: 1.5rem 3rem;
+    background-color: var(--bg-paper-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0; right: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(18, 18, 18, 0.05) 10px, rgba(18, 18, 18, 0.05) 20px);
+    pointer-events: none;
+}
+
+.divider-text {
+    font-family: var(--font-title-massive);
+    font-weight: 400;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    background-color: var(--bg-cream);
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--text-dark);
+    box-shadow: 4px 4px 0px 0px var(--text-dark);
+    z-index: 1;
+}
+
+.grid-layout {
+    display: grid;
+    gap: 4rem;
+}
+
+.intro-grid { grid-template-columns: repeat(3, 1fr); }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+
+/* CARTES BRUTALISTES */
+.card {
+    background-color: var(--bg-cream);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--shadow-flat-large);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 11px 11px 0px 0px var(--text-dark);
+}
+
+.card-header {
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h2,
+.card-header h3 {
+    font-family: var(--font-title-massive);
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.card-tag {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.85rem;
+    border: 2px solid var(--text-dark);
+    padding: 0.2rem 0.6rem;
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+}
+
+.card-body {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.lead-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.card-footer {
+    border-top: var(--border-width) solid var(--border-color);
+    padding: 1.5rem 2rem;
+    background-color: rgba(18, 18, 18, 0.02);
+}
+
+/* Thèmes de cartes */
+.brutal-card-red {
+    background-color: var(--accent-color);
+    color: var(--text-white);
+}
+.brutal-card-red .card-header { border-bottom-color: var(--text-dark); }
+.brutal-card-red .card-tag {
+    background-color: var(--text-dark);
+    color: var(--text-white);
+    border-color: var(--text-dark);
+}
+
+.brutal-card-forest {
+    background-color: var(--accent-green);
+    color: var(--text-white);
+}
+.brutal-card-forest h3 {
+    font-family: var(--font-title-massive);
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   HERO SECTION (DESIGN BRUTALISTE APPLIQUÉ AU LAYOUT WIREFRAME)
+   ========================================================================== */
+.hero-card {
+    padding: 3.5rem 4rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.hero-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-title-massive);
+    font-size: 4.8rem;
+    font-weight: 400; /* Dela Gothic One n'a qu'un seul poids */
+    line-height: 0.95;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.hero-title-ja {
+    font-family: var(--font-japanese);
+    font-size: 1.5rem;
+    color: var(--accent-red);
+    letter-spacing: 2px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: stretch;
+}
+
+.hero-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.hero-text-content p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+
+.hero-portrait-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portrait-frame {
+    width: 100%;
+    aspect-ratio: 1; /* Ratio carré parfait du wireframe */
+    border: 4px solid var(--text-dark);
+    position: relative;
+    background-color: var(--bg-paper-dark);
+    overflow: hidden;
+    box-shadow: inset 0 0 0 4px var(--bg-cream), inset 0 0 0 6px var(--text-dark);
+}
+
+.portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(10%) contrast(120%);
+    opacity: 0.9;
+    transition: transform 0.4s ease;
+}
+
+.portrait-frame:hover .portrait-img {
+    transform: scale(1.05);
+}
+
+.portrait-markers .marker {
+    position: absolute;
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: var(--accent-red);
+    font-weight: bold;
+}
+.marker.top-left { top: 8px; left: 8px; }
+.marker.top-right { top: 8px; right: 8px; }
+.marker.bottom-left { bottom: 8px; left: 8px; }
+.marker.bottom-right { bottom: 8px; right: 8px; }
+
+.portrait-overlay-text {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: var(--text-dark);
+    color: var(--text-white);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 0.3rem 0.6rem;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   BOUTONS, BADGES ET CITATIONS
+   ========================================================================== */
+.badge-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+
+.retro-badge {
+    border: 2px solid var(--text-dark);
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    box-shadow: 2px 2px 0px 0px var(--text-dark);
+}
+.bg-cream { background-color: var(--bg-cream); }
+.text-black { color: var(--text-dark); }
+.bg-dark-badge { background-color: var(--text-dark); border-color: var(--text-dark); }
+.text-white { color: var(--text-white); }
+
+.skills-block { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 1.5rem; }
+.skill-category { display: flex; flex-direction: column; gap: 0.4rem; }
+.skill-header { font-family: var(--font-heading); font-weight: 900; font-size: 0.95rem; color: var(--text-dark); letter-spacing: 0.5px; }
+.brutalist-quote {
+    font-family: var(--font-japanese);
+    font-size: 1.6rem;
+    font-weight: 900;
+    border-left: 5px solid var(--text-white);
+    padding-left: 1.2rem;
+    margin: 1.8rem 0;
+    line-height: 1.4;
+}
+
+.retro-btn {
+    border: var(--border-width) solid var(--text-dark);
+    font-family: var(--font-heading);
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    box-shadow: var(--shadow-flat);
+    transition: all 0.15s cubic-bezier(0.19, 1, 0.22, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+.retro-btn:hover { transform: translate(2px, 2px); box-shadow: var(--shadow-flat-pressed); }
+.btn-full { width: 100%; }
+.btn-red { background-color: var(--accent-color); color: var(--text-white); }
+.btn-green { background-color: var(--accent-green); color: var(--text-white); }
+.btn-black { background-color: var(--text-dark); color: var(--text-white); }
+
+/* ==========================================================================
+   WIDGETS ET SECTIONS (Principes, Parcours, Projets, Contact)
+   ========================================================================== */
+
+.principles-container { gap: 1.2rem; }
+.principles-selector { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.principle-btn {
+    background-color: var(--bg-paper-dark);
+    border: 2px solid var(--text-dark);
+    color: var(--text-dark);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 900;
+    text-align: left;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 3px 3px 0px 0px var(--text-dark);
+}
+.principle-btn.active {
+    background-color: var(--accent-color);
+    color: var(--text-white);
+}
+.principle-btn .p-num { font-family: monospace; font-size: 0.8rem; margin-right: 0.6rem; }
+.principle-btn .p-ja { font-family: var(--font-japanese); font-size: 0.95rem; font-weight: 900; }
+
+.principle-details-box {
+    border: 2px solid var(--text-dark);
+    padding: 1.2rem;
+    background-color: var(--bg-cream);
+    display: flex; flex-direction: column; gap: 0.5rem; min-height: 140px;
+}
+#principle-title-ja {
+    font-family: var(--font-japanese); font-size: 1.2rem; font-weight: 900;
+    color: var(--accent-color); border-bottom: 2px solid var(--text-dark); padding-bottom: 0.4rem;
+}
+
+.grid-inner-2col { display: grid; grid-template-columns: 2fr 1fr; gap: 3.5rem; padding: 2.5rem 2rem; align-items: center; }
+
+.hanko-stamp-large {
+    border: 4px solid var(--accent-red); color: var(--accent-red); font-family: var(--font-japanese);
+    padding: 1rem; text-align: center; font-size: 2.2rem; font-weight: 900; transform: rotate(5deg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: inset 0 0 0 3px var(--accent-red); background-color: var(--bg-cream);
+}
+.hanko-stamp-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; line-height: 1.1; }
+
+.timeline-container { display: flex; flex-direction: column; gap: 2.5rem; }
+.timeline-header-card h2 { font-family: var(--font-title-massive); font-size: 2.2rem; font-weight: 400; margin-bottom: 0.5rem; text-transform: uppercase; }
+.metro-line-wrapper {
+    background-color: var(--bg-paper-dark); border: var(--border-width) solid var(--border-color);
+    padding: 2.5rem 1.5rem; display: flex; justify-content: space-around; align-items: center; position: relative;
+}
+.metro-track { position: absolute; height: 6px; background-color: var(--accent-green); left: 10%; right: 10%; top: 50%; transform: translateY(-50%); border: 1px solid var(--text-dark); }
+.metro-progress { width: 100%; height: 100%; background-color: var(--accent-color); transition: width 0.5s ease; }
+.metro-station { display: flex; flex-direction: column; align-items: center; z-index: 2; cursor: pointer; }
+.station-node { width: 24px; height: 24px; border-radius: 50%; background-color: var(--bg-cream); border: 3px solid var(--text-dark); }
+.metro-station.active .station-node { background-color: var(--accent-color); box-shadow: 0 0 0 4px rgba(209, 56, 46, 0.3); }
+.station-code { background-color: var(--text-dark); color: var(--bg-cream); font-size: 0.7rem; font-weight: 900; padding: 0.1rem 0.4rem; border: 1px solid var(--text-dark); margin-bottom: 0.2rem; }
+.station-name { font-weight: 700; font-size: 0.9rem; font-family: var(--font-heading); text-align: center; margin-top: 0.5rem; }
+
+.exp-card-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px solid var(--text-dark); padding-bottom: 1.2rem; margin-bottom: 1.2rem; }
+.exp-date-badge { background-color: var(--text-dark); color: var(--bg-cream); font-family: var(--font-heading); font-weight: 900; font-size: 0.75rem; padding: 0.15rem 0.5rem; }
+.exp-title-h3 { font-family: var(--font-title-massive); font-weight: 400; font-size: 1.8rem; text-transform: uppercase; }
+.exp-company-ja { font-family: var(--font-japanese); font-size: 0.9rem; opacity: 0.8; }
+.hanko-seal-verified { border: 3px solid var(--text-white); color: var(--text-white); font-family: var(--font-japanese); font-size: 1.6rem; font-weight: 900; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transform: rotate(-15deg); box-shadow: inset 0 0 0 1px var(--text-white); }
+.brutalist-list { list-style: none; }
+.brutalist-list li { position: relative; padding-left: 2rem; margin-bottom: 0.8rem; font-size: 1rem; }
+.brutalist-list li::before { content: "■"; position: absolute; left: 0; top: 0; font-size: 0.9rem; }
+.brutal-card-red .brutalist-list li::before { color: var(--text-white); }
+
+.projects-intro h2 { font-family: var(--font-title-massive); font-size: 3rem; font-weight: 400; line-height: 1; margin-bottom: 1rem; }
+.projects-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+.project-img-wrapper { 
+    position: relative; 
+    height: 240px; 
+    border-bottom: var(--border-width) solid var(--border-color); 
+    background-color: var(--text-dark); /* Like the poster's dark background */
+    padding: 1.5rem;
+    overflow: hidden; 
+}
+.project-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    filter: sepia(30%) grayscale(40%) contrast(120%); /* More retro/tan look */
+    border: 2px solid var(--bg-cream); /* Inner frame */
+    transition: transform 0.4s ease; 
+}
+.project-card:hover .project-img { transform: scale(1.05); }
+.project-status-sticker { 
+    position: absolute; 
+    top: 5px; 
+    right: 5px; 
+    font-family: var(--font-title-massive); 
+    font-size: 1.1rem; 
+    padding: 0.3rem 0.8rem; 
+    border: 3px solid var(--text-dark); 
+    background-color: var(--bg-cream); 
+    color: var(--accent-red); 
+    box-shadow: 3px 3px 0px 0px var(--text-dark); 
+    transform: rotate(5deg); 
+    z-index: 10;
+}
+.project-price-tag { 
+    font-family: var(--font-heading); 
+    font-weight: 900; 
+    font-size: 0.8rem; 
+    color: var(--bg-cream); 
+    border: 2px solid var(--text-dark); 
+    padding: 0.2rem 0.6rem; 
+    width: fit-content; 
+    margin-bottom: 1rem; 
+    background-color: var(--text-dark); 
+}
+.project-title { 
+    font-family: var(--font-title-massive); 
+    font-weight: 400; 
+    font-size: 2.2rem; 
+    line-height: 0.9; 
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.tag-item { font-family: var(--font-heading); font-size: 0.75rem; font-weight: 700; border: 2px solid var(--text-dark); padding: 0.2rem 0.5rem; background-color: var(--bg-paper-dark); }
+
+.contact-grid { grid-template-columns: 1.5fr 1fr; gap: 3rem; }
+.brutalist-input { 
+    border: 3px solid var(--text-dark); 
+    background-color: var(--bg-cream); 
+    padding: 1rem; 
+    width: 100%; 
+    font-family: var(--font-heading); 
+    font-weight: 700;
+    font-size: 1.1rem; 
+    border-radius: 0; 
+    outline: none; 
+    transition: all 0.1s ease; 
+}
+.brutalist-input:focus { 
+    box-shadow: 6px 6px 0px 0px var(--text-dark); 
+    background-color: var(--text-white); 
+    transform: translate(-2px, -2px);
+}
+.form-group label { font-family: var(--font-heading); font-weight: 900; font-size: 1rem; display: block; margin-bottom: 0.5rem; }
+.required { color: var(--accent-red); }
+.hanko-btn-seal { width: 32px; height: 32px; border: 2px solid var(--text-white); color: var(--text-white); font-family: var(--font-japanese); font-size: 1.05rem; font-weight: 900; display: flex; align-items: center; justify-content: center; border-radius: 50%; transform: rotate(-10deg); }
+.contact-info-panel { display: flex; flex-direction: column; gap: 2rem; }
+.network-list li { display: flex; justify-content: space-between; border-bottom: 2px dashed var(--text-white); padding: 0.8rem 0; }
+.network-list li:last-child { border-bottom: none; }
+.net-lbl { font-family: var(--font-heading); font-weight: 900; }
+.net-val { color: var(--text-white); text-decoration: underline; font-weight: 700; }
+
+.retro-receipt { background-color: #fff; border: var(--border-width) solid #121212; padding: 2rem; }
+.retro-receipt.hidden { display: none; }
+.receipt-header { text-align: center; margin-bottom: 1.5rem; }
+.receipt-header h4 { font-family: var(--font-japanese); font-weight: 900; font-size: 1.25rem; }
+.receipt-dash { border: none; border-top: 2px dashed #121212; margin: 1rem 0; }
+.receipt-row { display: flex; justify-content: space-between; font-family: var(--font-heading); font-weight: 700; }
+.receipt-success { background-color: var(--accent-green); color: var(--text-white); font-weight: 900; padding: 0.1rem 0.5rem; font-size: 0.75rem; }
+.receipt-msg-box { background-color: var(--bg-cream); border: 2px solid #121212; padding: 1rem; margin: 1.2rem 0; }
+.receipt-stamp { border: 3px solid var(--accent-red); color: var(--accent-red); font-family: var(--font-japanese); font-size: 1.1rem; font-weight: 900; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transform: rotate(15deg); margin: 0.4rem 0; box-shadow: inset 0 0 0 1px var(--accent-red); }
+
+/* ==========================================================================
+   PIED DE PAGE (FOOTER)
+   ========================================================================== */
+
+.main-footer { margin-top: 2rem; border: var(--border-width) solid var(--border-color); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; background-color: var(--bg-cream); box-shadow: var(--shadow-flat); }
+.footer-stickers { display: flex; gap: 0.5rem; }
+.sticker-tag { font-family: var(--font-heading); font-weight: 900; font-size: 0.7rem; border: 2px solid var(--text-dark); padding: 0.15rem 0.5rem; box-shadow: 2px 2px 0px 0px var(--text-dark); }
+.sticker-red { background-color: var(--accent-red); color: var(--text-white); }
+.sticker-black { background-color: var(--text-dark); color: var(--bg-cream); }
+.sticker-green { background-color: var(--accent-green); color: var(--text-white); }
+
+/* ==========================================================================
+   ANIMATIONS & SAKURA PARTICLES
+   ========================================================================== */
+#sakura-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1000; overflow: hidden; }
+.sakura-petal { position: absolute; background-color: #ffb7c5; border-radius: 10px 0 10px 10px; opacity: 0.8; animation: fall linear infinite; }
+@keyframes fall { 0% { transform: translateY(-20px) rotate(0deg) scale(0.8); } 100% { transform: translateY(105vh) rotate(360deg) scale(1.2); } }
+
+/* ==========================================================================
+   📐 MODE FIL DE FER / WIREFRAME BLUEPRINT
+   ========================================================================== */
+
+body.wireframe-mode {
+    --bg-cream: #ffffff;
+    --bg-paper-dark: #f9f9f9;
+    --border-color: var(--wireframe-blue);
+    color: var(--wireframe-blue);
+}
+body.wireframe-mode::before {
+    opacity: 0.12;
+    background-image: linear-gradient(to right, var(--wireframe-blue) 1.5px, transparent 1.5px), linear-gradient(to bottom, var(--wireframe-blue) 1.5px, transparent 1.5px);
+}
+body.wireframe-mode .card, body.wireframe-mode .nav-tab, body.wireframe-mode aside, body.wireframe-mode header, body.wireframe-mode footer, body.wireframe-mode .util-btn, body.wireframe-mode .retro-btn, body.wireframe-mode .hanko-stamp, body.wireframe-mode .hanko-stamp-large, body.wireframe-mode .principle-btn, body.wireframe-mode .principle-details-box, body.wireframe-mode .viewport-widget, body.wireframe-mode .brutalist-input, body.wireframe-mode .section-divider, body.wireframe-mode .portrait-frame {
+    border-style: dashed !important; border-color: var(--wireframe-blue) !important; box-shadow: none !important; border-radius: 0 !important; transform: none !important;
+}
+body.wireframe-mode .card-body { background-color: rgba(0, 85, 255, 0.01); }
+body.wireframe-mode .barcode, body.wireframe-mode .mini-dots-grid, body.wireframe-mode .hanko-seal-verified, body.wireframe-mode .receipt-stamp, body.wireframe-mode .oriental-accent-stamp, body.wireframe-mode .portrait-markers { opacity: 0.15; }
+body.wireframe-mode .card::before { content: "<div.card>"; position: absolute; top: -12px; left: 8px; background-color: var(--wireframe-blue); color: #fff; font-family: monospace; font-size: 0.58rem; font-weight: bold; padding: 1px 4px; z-index: 10; }
+body.wireframe-mode .portrait-card::before { content: "<div.portrait-hero>"; }
+body.wireframe-mode .section-divider::before { display: none; }
+body.wireframe-mode .nav-tab::before { content: "<a.nav-tab>"; position: absolute; top: 2px; left: 2px; font-family: monospace; font-size: 0.5rem; opacity: 0.7; color: var(--wireframe-blue); }
+body.wireframe-mode h1, body.wireframe-mode h2, body.wireframe-mode h3, body.wireframe-mode h4, body.wireframe-mode .divider-text { color: var(--wireframe-blue) !important; border-color: var(--wireframe-blue) !important; box-shadow: none !important; }
+body.wireframe-mode .brutalist-quote { border-left-color: var(--wireframe-blue) !important; color: var(--wireframe-blue) !important; }
+body.wireframe-mode .retro-btn, body.wireframe-mode .util-btn, body.wireframe-mode .principle-btn { background-color: transparent !important; color: var(--wireframe-blue) !important; }
+body.wireframe-mode .principle-btn.active, body.wireframe-mode .nav-tab.active { background-color: rgba(0, 85, 255, 0.1) !important; }
+body.wireframe-mode .brutalist-input { background-color: transparent !important; }
+body.wireframe-mode .brutalist-input:focus { outline: 2px solid var(--wireframe-blue); }
+body.wireframe-mode .project-status-sticker, body.wireframe-mode .project-price-tag { background-color: transparent !important; border-style: dotted !important; border-color: var(--wireframe-blue) !important; color: var(--wireframe-blue) !important; box-shadow: none !important; }
+body.wireframe-mode .project-img, body.wireframe-mode .portrait-img { filter: grayscale(100%) opacity(30%); }
+
+/* ==========================================================================
+   ÉCRAN DE CHARGEMENT BRUTALISTE
+   ========================================================================== */
+#brutalist-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--bg-cream);
+    transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+#brutalist-loader.loaded {
+    transform: translateY(-100%);
+    pointer-events: none;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 80%;
+    max-width: 600px;
+}
+
+.loader-logo {
+    transform: scale(1.5);
+    transform-origin: center;
+    margin-bottom: 2.5rem;
+}
+
+.loader-logo .logo-title {
+    color: var(--text-white);
+}
+
+.loader-logo .logo-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.loader-logo .hanko-stamp {
+    border-color: var(--text-white);
+    color: var(--text-white);
+    box-shadow: inset 0 0 0 2px var(--text-white);
+}
+
+.loader-title {
+    font-family: var(--font-title-massive);
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 0.9;
+    text-align: center;
+    margin: 0;
+}
+
+.loader-ja {
+    font-family: var(--font-japanese);
+    font-size: 1.5rem;
+    color: var(--accent-red);
+    display: block;
+    margin-top: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.loader-progress-box {
+    width: 100%;
+    height: 16px;
+    border: 3px solid var(--bg-cream);
+    padding: 2px;
+}
+
+.loader-progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--accent-red);
+    animation: loadingBar 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.loader-status {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    animation: blinkText 0.5s infinite alternate;
+}
+
+@keyframes loadingBar {
+    0% { width: 0%; }
+    40% { width: 30%; }
+    60% { width: 70%; }
+    100% { width: 100%; }
+}
+
+@keyframes blinkText {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .app-container { grid-template-columns: 1fr; }
+    .sidebar-left, .sidebar-right { display: none; }
+    .intro-grid, .about-grid, .projects-grid, .contact-grid { grid-template-columns: 1fr; }
+    .col-span-2, .col-span-3 { grid-column: span 1; }
+    .brutalist-nav { flex-wrap: wrap; }
+    .nav-tab { flex: 1 1 50%; border-bottom: var(--border-width) solid var(--border-color); }
+    .nav-tab:nth-child(even) { border-right: none; }
+    .grid-inner-2col { grid-template-columns: 1fr; }
+    .content-body { padding: 1.5rem; }
+    .section-divider { margin: 2rem -1.5rem 3rem -1.5rem; padding: 1rem 1.5rem; }
+    .main-footer { flex-direction: column; gap: 1rem; text-align: center; }
+}

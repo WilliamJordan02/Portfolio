@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales — William Anguile-Diop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Serif+JP:wght@600;900&family=Orbitron:wght@700;900&family=Quantico:wght@700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .mentions-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 4rem;
+            background-color: var(--bg-cream);
+            border: var(--border-width) solid var(--text-dark);
+            box-shadow: var(--shadow-flat-large);
+            position: relative;
+        }
+        .mentions-header {
+            margin-bottom: 3rem;
+            border-bottom: 4px solid var(--text-dark);
+            padding-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .mentions-title {
+            font-family: var(--font-title-massive);
+            font-size: 3rem;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .mentions-ja {
+            font-family: var(--font-japanese);
+            font-size: 1.5rem;
+            color: var(--accent-red);
+            font-weight: 900;
+        }
+        .mentions-section {
+            margin-bottom: 3rem;
+        }
+        .mentions-section h2 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            background-color: var(--text-dark);
+            color: var(--bg-cream);
+            padding: 0.4rem 1rem;
+            display: inline-block;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 0px 0px var(--accent-red);
+        }
+        .mentions-section p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .back-nav {
+            max-width: 800px;
+            margin: 3rem auto 2rem auto;
+        }
+        .back-link {
+            font-family: var(--font-heading);
+            font-weight: 900;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: 3px solid var(--text-dark);
+            padding: 0.6rem 1.2rem;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px 0px var(--text-dark);
+            background-color: var(--bg-cream);
+            text-transform: uppercase;
+        }
+        .back-link:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 7px 7px 0px 0px var(--accent-red);
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+        
+        .mentions-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--bg-paper-dark);
+            z-index: -1;
+            background-image: 
+                linear-gradient(to right, rgba(18, 18, 18, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(18, 18, 18, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Écran de Chargement Brutaliste -->
+    <div id="brutalist-loader">
+        <div class="loader-content">
+            <div class="logo-area loader-logo">
+                <div class="hanko-stamp">WA</div>
+                <div class="logo-subtitle">ウィリアム</div>
+            </div>
+            <div class="loader-progress-box">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-status">INITIALIZING...</div>
+        </div>
+    </div>
+    <div class="paper-overlay"></div>
+    <div class="mentions-bg"></div>
+    
+    <div style="padding-bottom: 4rem;">
+        
+        <nav class="back-nav">
+            <a href="index.html" class="back-link">
+                <span>←</span> RETOUR AU PORTFOLIO
+            </a>
+        </nav>
+
+        <main class="mentions-container">
+            <header class="mentions-header">
+                <div>
+                    <h1 class="mentions-title">Mentions<br>Légales</h1>
+                </div>
+                <div class="mentions-ja">法的通知</div>
+            </header>
+
+            <section class="mentions-section">
+                <h2>1. Éditeur du site</h2>
+                <p>
+                    Le présent site web est édité par <strong>William Anguile-Diop</strong>.<br>
+                    Statut : Designer / Développeur Web indépendant<br>
+                    Email : [VOTRE EMAIL]<br>
+                    Téléphone : [VOTRE NUMÉRO]
+                </p>
+            </section>
+
+            <section class="mentions-section">
+                <h2>2. Hébergement</h2>
+                <p>
+                    Ce site est hébergé par : <strong>[NOM DE L'HÉBERGEUR]</strong><br>
+                    Adresse : [ADRESSE DE L'HÉBERGEUR]<br>
+                    Site web : [URL DE L'HÉBERGEUR]
+                </p>
+            </section>
+
+            <section class="mentions-section">
+                <h2>3. Propriété Intellectuelle</h2>
+                <p>
+                    L'ensemble des éléments figurant sur le présent site (textes, images, designs, logos, architecture brutale, code source) sont la propriété exclusive de William Anguile-Diop, sauf mention contraire. Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est formellement interdite sans autorisation écrite préalable.
+                </p>
+            </section>
+
+            <section class="mentions-section">
+                <h2>4. Données Personnelles</h2>
+                <p>
+                    Les informations recueillies via le bordereau de transmission (formulaire de contact) sont enregistrées de manière sécurisée par William Anguile-Diop dans le seul but de faciliter les échanges commerciaux. Elles sont conservées le temps nécessaire à la relation commerciale et ne sont en aucun cas revendues ou cédées à des tiers.
+                </p>
+                <p>
+                    Conformément à la loi "Informatique et Libertés" et au RGPD, vous pouvez exercer votre droit d'accès aux données vous concernant et les faire rectifier ou supprimer en contactant l'éditeur à l'adresse fournie ci-dessus.
+                </p>
+            </section>
+        </main>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
