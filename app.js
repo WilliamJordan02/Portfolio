@@ -154,17 +154,30 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const btnText = sakuraBtn.querySelector('.btn-text');
             if (sakuraActive) {
-                btnText.textContent = "SAKURA: ON";
+                if (btnText) btnText.textContent = "SAKURA: ON";
+                sakuraBtn.setAttribute('aria-pressed', 'true');
                 startSakura();
             } else {
-                btnText.textContent = "SAKURA: OFF";
+                if (btnText) btnText.textContent = "SAKURA: OFF";
+                sakuraBtn.setAttribute('aria-pressed', 'false');
                 stopSakura();
             }
         });
     }
 
-    // Démarrer au chargement
-    startSakura();
+    // Démarrer au chargement en respectant la préférence utilisateur de réduction de mouvements
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+        sakuraActive = false;
+        if (sakuraBtn) {
+            sakuraBtn.classList.remove('active');
+            sakuraBtn.setAttribute('aria-pressed', 'false');
+            const btnText = sakuraBtn.querySelector('.btn-text');
+            if (btnText) btnText.textContent = "SAKURA: OFF";
+        }
+    } else {
+        startSakura();
+    }
 
     /* ==========================================================================
        LOGIQUE DU FORMULAIRE DE CONTACT (SIMULATION)
@@ -209,22 +222,28 @@ document.addEventListener('DOMContentLoaded', () => {
     
     stations.forEach((station, index) => {
         station.addEventListener('click', () => {
-            // Nettoyer les classes actives
-            stations.forEach(s => s.classList.remove('active'));
+            // Nettoyer les classes actives et mettre à jour aria-pressed
+            stations.forEach(s => {
+                s.classList.remove('active');
+                s.setAttribute('aria-pressed', 'false');
+            });
             
             // Mettre à jour l'état visuel des stations
             stations.forEach((s, i) => {
                 const node = s.querySelector('.station-node');
-                if (i < index) {
-                    node.style.backgroundColor = 'var(--text-dark)'; // Station passée
-                } else if (i === index) {
-                    node.style.backgroundColor = ''; // Reset CSS gérera .active
-                } else {
-                    node.style.backgroundColor = 'var(--bg-cream)'; // Station future
+                if (node) {
+                    if (i < index) {
+                        node.style.backgroundColor = 'var(--text-dark)'; // Station passée
+                    } else if (i === index) {
+                        node.style.backgroundColor = ''; // Reset CSS gérera .active
+                    } else {
+                        node.style.backgroundColor = 'var(--bg-cream)'; // Station future
+                    }
                 }
             });
             
             station.classList.add('active');
+            station.setAttribute('aria-pressed', 'true');
             
             // Mettre à jour la barre de progression (très basique pour l'effet, s'adapte en hauteur ou en largeur)
             const progress = document.querySelector('.metro-progress');
@@ -272,6 +291,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             } 
         });
+
+        station.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                station.click();
+            }
+        });
     });
 
     /* ==========================================================================
@@ -290,13 +316,13 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (concept === 'wabi-sabi') {
                 titleEl.textContent = "侘寂 — WABI-SABI";
-                descEl.textContent = "L'acceptation de l'imperfection, de l'asymétrie et de l'usure naturelle. Dans mon code, cela se traduit par des textures organiques et des mises en page asymétriques réfléchies.";
+                descEl.innerHTML = "Ma démarche artistique est guidée par une passion profonde pour le design brutaliste et le désir de transmettre des émotions brutes à travers des interfaces sans compromis.<br><br>L'asymétrie, les contrastes marqués et l'absence d'ornements superflus ne sont pas que des choix esthétiques : ce sont des vecteurs de ressenti et de connexion humaine.";
             } else if (concept === 'shibui') {
                 titleEl.textContent = "渋味 — SHIBUI";
-                descEl.textContent = "Une beauté simple, subtile et discrète. Je privilégie les palettes de couleurs restreintes et la hiérarchie visuelle claire sans ornements superflus. L'interface ne s'impose pas, elle se découvre.";
+                descEl.innerHTML = "Une beauté simple, subtile et discrète. Je privilégie les palettes de couleurs restreintes et la hiérarchie visuelle claire sans ornements superflus. L'interface ne s'impose pas, elle se découvre.";
             } else if (concept === 'yugen') {
                 titleEl.textContent = "幽玄 — YŪGEN";
-                descEl.textContent = "Un sens profond et mystérieux de la grâce. À travers le design interactif, j'ajoute des micro-interactions insoupçonnées qui donnent vie à l'interface uniquement lorsqu'on la manipule.";
+                descEl.innerHTML = "Un sens profond et mystérieux de la grâce. À travers le design interactif, j'ajoute des micro-interactions insoupçonnées qui donnent vie à l'interface uniquement lorsqu'on la manipule.";
             }
         });
     });
@@ -314,4 +340,34 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.addEventListener('resize', updateViewport);
     updateViewport(); // Init
+
+    /* ==========================================================================
+       GESTION DU MENU BURGER MOBILE
+       ========================================================================== */
+    const burgerBtn = document.getElementById('mobile-burger-btn');
+    const classicNav = document.querySelector('.classic-nav');
+
+    if (burgerBtn && classicNav) {
+        burgerBtn.addEventListener('click', () => {
+            const isOpen = burgerBtn.classList.toggle('open');
+            classicNav.classList.toggle('open');
+            burgerBtn.setAttribute('aria-expanded', isOpen);
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Fermer le menu lors du clic sur un lien
+        const navLinks = classicNav.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burgerBtn.classList.remove('open');
+                classicNav.classList.remove('open');
+                burgerBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+    }
 });

@@ -17,7 +17,7 @@
         <div class="loader-content">
             <div class="logo-area loader-logo">
                 <div class="hanko-stamp">WA</div>
-                <div class="logo-subtitle">ウィリアム</div>
+                <div lang="ja" class="logo-subtitle">ウィリアム</div>
             </div>
 
             
@@ -37,11 +37,11 @@
             <div class="logo-area">
                 <div class="hanko-stamp">WA</div>
                 <div class="logo-title">W.ANGUILE-DIOP</div>
-                <div class="logo-subtitle">ウィリアム</div>
+                <div lang="ja" class="logo-subtitle">ウィリアム</div>
             </div>
             
             <div class="vertical-text-container">
-                <span class="vertical-text-item">ウェブデザイナー • 設計士</span>
+                <span lang="ja" class="vertical-text-item">ウェブデザイナー • 設計士</span>
                 <span class="vertical-text-divider"></span>
                 <span class="vertical-text-item latin">INTERFACE ARTISAN ©2026</span>
             </div>
@@ -49,7 +49,7 @@
              <div class="oriental-accent-stamp">
                 <div class="accent-circle"></div>
                 <div class="accent-line"></div>
-                <div class="accent-kanji">寿</div>
+                <div lang="ja" class="accent-kanji">寿</div>
             </div>
         </aside>
 
@@ -69,34 +69,42 @@
 
                 <div class="header-main-title">
                     <div class="title-left">
-                       
-                        <span class="subtitle-badge">DISPONIBLE POUR CONTRATS</span>
+                        <div class="mobile-logo-area">
+                            <div class="mobile-logo-stamp">WA</div>
+                            <span class="mobile-logo-title">W.ANGUILE-DIOP</span>
+                        </div>
                     </div>
                     <nav class="classic-nav">
-                    <a href="#tab-intro" class="nav-link active">
-                        <span class="nav-text">A PROPOS</span>
-                        <span class="nav-ja">自己紹介</span>
-                    </a>
-                    <a href="#tab-experience" class="nav-link">
-                        <span class="nav-text">PARCOURS</span>
-                        <span class="nav-ja">経歴</span>
-                    </a>
-                    <a href="#tab-projects" class="nav-link">
-                        <span class="nav-text">MES PROJETS</span>
-                        <span class="nav-ja">作品</span>
-                    </a>
-                    <a href="#tab-contact" class="nav-link">
-                        <span class="nav-text">CONTACT</span>
-                        <span class="nav-ja">連絡先</span>
-                    </a>
-                </nav>
+                        <span class="subtitle-badge">DISPONIBLE POUR CONTRATS</span>
+                        <a href="#tab-intro" class="nav-link active">
+                            <span class="nav-text">A PROPOS</span>
+                            <span lang="ja" class="nav-ja">自己紹介</span>
+                        </a>
+                        <a href="#tab-experience" class="nav-link">
+                            <span class="nav-text">PARCOURS</span>
+                            <span lang="ja" class="nav-ja">経歴</span>
+                        </a>
+                        <a href="#tab-projects" class="nav-link">
+                            <span class="nav-text">MES PROJETS</span>
+                            <span lang="ja" class="nav-ja">作品</span>
+                        </a>
+                        <a href="#tab-contact" class="nav-link">
+                            <span class="nav-text">CONTACT</span>
+                            <span lang="ja" class="nav-ja">連絡先</span>
+                        </a>
+                    </nav>
                     <div class="title-right">
                         <div class="utility-controls">
-
                             <!-- Contrôle Sakura -->
-                            <button id="toggle-sakura" class="util-btn active" title="Activer/Désactiver Sakura">
+                            <button id="toggle-sakura" class="util-btn active" title="Activer/Désactiver Sakura" aria-pressed="true">
                                 <span class="btn-icon">🌸</span>
                                 <span class="btn-text">SAKURA: ON</span>
+                            </button>
+                            <!-- Bouton Menu Burger Mobile -->
+                            <button id="mobile-burger-btn" class="burger-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
                             </button>
                         </div>
                     </div>
@@ -112,7 +120,7 @@
                         <div class="hero-header">
                             <h1 class="hero-title">
                                 WILLIAM ANGUILE-DIOP
-                                <span class="hero-title-ja">ウィリアム</span>
+                                <span lang="ja" class="hero-title-ja">ウィリアム</span>
                             </h1>
                             
                         </div>
@@ -177,28 +185,29 @@
                         <!-- Bloc Philosophie -->
                         <div class="card brutal-card-white principles-card">
                             <div class="card-header">
-                                <h2>Philosophie / 哲学</h2>
+                                <h2>Philosophie / <span lang="ja">哲学</span></h2>
                                 <span class="card-tag">PHILOSOPHY</span>
                             </div>
                             <div class="card-body">
-                                <div class="grid-layout principles-container" style="grid-template-columns: 1fr 1.2fr; gap: 1.5rem;">
-                                    <div class="principles-selector">
-                                        <button class="principle-btn active" data-concept="wabi-sabi">
-                                            <span><span class="p-num">01.</span> Wabi-Sabi</span>
-                                            <span class="p-ja">侘寂</span>
-                                        </button>
-                                        <button class="principle-btn" data-concept="shibui">
-                                            <span><span class="p-num">02.</span> Shibui</span>
-                                            <span class="p-ja">渋味</span>
-                                        </button>
-                                        <button class="principle-btn" data-concept="yugen">
-                                            <span><span class="p-num">03.</span> Yūgen</span>
-                                            <span class="p-ja">幽玄</span>
-                                        </button>
-                                    </div>
+                                <div class="grid-layout principles-container" style="grid-template-columns: 1fr; gap: 1.5rem;">
+                                
                                     <div class="principle-details-box">
-                                        <h3 id="principle-title-ja">侘寂 — WABI-SABI</h3>
-                                        <p id="principle-description">L'acceptation de l'imperfection, de l'asymétrie et de l'usure naturelle. Dans mon code, cela se traduit par des textures organiques et des mises en page asymétriques réfléchies.</p>
+                                        <h3 id="principle-title-ja"><span lang="ja">侘寂</span> — Ma Vision</h3>
+                                        <p id="principle-description">Passioné par de multiples domaines créatfs(Dessin, Musique, Photo, Video). Je suis souhaite développer mes compétences créatives 
+                                            pour ppuvoir un jour créé mon propre univers et pouvoir inspirer d'autre personne.</p>
+                                    </div>
+                                </div>
+
+                                <div class="grid-layout principles-container" style="grid-template-columns: 1fr; gap: 1.5rem;">
+                                
+                                    <div class="principle-details-box">
+                                        <h3 id="principle-title-ja"><span lang="ja">侘寂</span> — WABI-SABI</h3>
+                                        <p id="principle-description">Ma démarche artistique est guidée par une passion profonde pour 
+                                            le design brutaliste et le désir de transmettre des émotions brutes à travers 
+                                            des interfaces sans compromis.<br>
+
+                                            <br>L'asymétrie, les contrastes marqués et l'absence d'ornements superflus 
+                                            ne sont pas que des choix esthétiques : ce sont des vecteurs de ressenti et de connexion humaine.</p>
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +216,7 @@
                         <!-- Bloc Soft Skills & Passions -->
                         <div class="card brutal-card-white soft-passions-card">
                             <div class="card-header bg-cream text-black">
-                                <h2>Soft Skills & Passions / 技能</h2>
+                                <h2>Soft Skills & Passions / <span lang="ja">技能</span></h2>
                                 <span class="card-tag tag-white">PROFIL</span>
                             </div>
                             <div class="card-body">
@@ -226,9 +235,13 @@
                                     <div class="skill-category mt-3">
                                         <span class="skill-header">■ PASSIONS</span>
                                         <ul class="brutalist-list" style="margin-top: 0.5rem;">
-                                            <li><strong>Architecture Brutaliste :</strong> Passion pour les géométries de béton et le métabolisme japonais.</li>
-                                            <li><strong>Design d'Affiches Vintage :</strong> Étude de la typographie suisse et de l'avant-garde nippone.</li>
-                                            <li><strong>Randonnée Urbaine :</strong> Photographie argentique de ruelles à Tokyo et Paris.</li>
+                                            <li><strong>Manga et Anime Japonais :
+                                                
+                                            </strong> Passion pour les mangas et animes et leurs univers variés. <br>Anime preférés : Hunter x Hunter, </li>
+                                            
+                                            <li><strong>Musique Rap US :</strong> Attrait pour le rap et la culture US. <br>Rapper preféré : Kendrick Lamar</li>
+                                        
+                                            <li><strong>Jeux-Video :</strong>  De tout type mais surtout compétitif : <br>Smash bros, Street fighter, Overwatch</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -239,7 +252,7 @@
                 </section>
 
                 <div class="section-divider">
-                    <span class="divider-text">SECTION 02 — 経歴路線図</span>
+                    <span class="divider-text">SECTION 02 — <span lang="ja">経歴路線図</span></span>
                 </div>
 
                 <!-- SECTION 02: PARCOURS -->
@@ -249,78 +262,97 @@
                         <div class="hero-header">
                             <h2 class="hero-title">
                                 Parcours Professionnel
-                                <span class="hero-title-ja">経歴路線図 / ROADMAP</span>
+                                <span class="hero-title-ja"><span lang="ja">経歴路線図</span> / ROADMAP</span>
                             </h2>
                         </div>
                         
                         <div class="hero-text-content" style="gap: 2.5rem; display: flex; flex-direction: column;">
                             <p class="lead-text">
-                                Parcourez mes escales professionnelles à la manière d'une ligne de transport urbain de Tokyo. Cliquez sur les stations pour dévoiler les détails de chaque arrêt.
+                                Découvrez mon parcours académique et professionnel présenté sous la forme d'un itinéraire brutaliste de développement.
                             </p>
-                            
-                          
 
-                            <!-- Ligne de métro interactive -->
-                            <div class="metro-line-wrapper">
-                                <div class="metro-track">
-                                    <div class="metro-progress"></div>
-                                </div>
+                            <!-- Nouvelle ligne de parcours verticale -->
+                            <div class="vertical-timeline">
+                                <div class="timeline-line"></div>
                                 
-                                <!-- Station 1 (Actuelle) -->
-                                <div class="metro-station active" data-exp="exp-current">
-                                    <div class="station-node"></div>
-                                    <div class="station-label">
-                                      
-                                        <span class="station-name">Lycee guy de Mautpassant - Colombes 92700</span>
+                                <!-- Étape 1 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-node-container">
+                                        <div class="timeline-node"></div>
+                                    </div>
+                                    <div class="card brutal-card-blue timeline-card">
+                                        <div class="exp-card-header">
+                                            <div class="exp-meta">
+                                                <span class="exp-date-badge">2020 - 2022</span>
+                                                <h3 class="exp-title-h3">Baccalauréat Général (Option NSI & AMC)</h3>
+                                                <span class="exp-company-ja">Lycée Guy de Maupassant — Colombes 92700</span>
+                                            </div>
+                                        
+                                        </div>
+                                        <div class="exp-card-body">
+                                            <ul class="brutalist-list">
+                                                <li>Acquisition des concepts fondamentaux de l'informatique : programmation en Python, algorithmique, bases de données relationnelles et architectures réseaux (spécialité NSI).</li>
+                                                <li>Développement d'une solide maîtrise de l'anglais et étude des enjeux contemporains (spécialité AMC).</li>
+                                                <li>Premiers travaux collaboratifs sur des micro-projets de programmation et d'applications Web.</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Station 2 -->
-                                <div class="metro-station" data-exp="exp-2">
-                                    <div class="station-node"></div>
-                                    <div class="station-label">
-                                        <span class="station-name">Lycee Parc de Vilgenis - Massy 91300</span>
+                                <!-- Étape 2 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-node-container">
+                                        <div class="timeline-node"></div>
+                                    </div>
+                                    <div class="card brutal-card-white timeline-card">
+                                        <div class="exp-card-header">
+                                            <div class="exp-meta">
+                                                <span class="exp-date-badge">2022 - 2024</span>
+                                                <h3 class="exp-title-h3">BTS SIO option SLAM</h3>
+                                                <span class="exp-company-ja">Lycée Parc de Vilgenis — Massy 91300</span>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="exp-card-body">
+                                            <ul class="brutalist-list">
+                                                <li>Création d'expériences WebGL et animations complexes (Three.js, GSAP).</li>
+                                                <li>Intégration pixel-perfect de maquettes haute fidélité.</li>
+                                                <li>Optimisation des performances web (Core Web Vitals) et sécurisation des applications Web en PHP/MySQL.</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <!-- Station 3 -->
-                                <div class="metro-station" data-exp="exp-3">
-                                    <div class="station-node"></div>
-                                    <div class="station-label">
-                                
-                                        <span class="station-name">My Digital School - 75011 </span>
+                                <!-- Étape 3 -->
+                                <div class="timeline-item">
+                                    <div class="timeline-node-container">
+                                        <div class="timeline-node"></div>
+                                    </div>
+                                    <div class="card brutal-card-blue timeline-card">
+                                        <div class="exp-card-header">
+                                            <div class="exp-meta">
+                                                <span class="exp-date-badge">2025 - 2026</span>
+                                                <h3 class="exp-title-h3">Bachelor 3ème année Webdesign</h3>
+                                                <span class="exp-company-ja">My Digital School — Paris 75011</span>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="exp-card-body">
+                                            <ul class="brutalist-list">
+                                                <li>Design de systèmes de composants graphiques (design systems) et kits de composants réutilisables sous Figma.</li>
+                                                <li>Maquettage fil de fer (Wireframes), prototypage interactif et réalisation de tests utilisateurs (UX).</li>
+                                                <li>Maintenance CSS, révision typographique et audit des développements front-end aux normes d'accessibilité numérique (WCAG/RGAA).</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Zone de Détails de la Station Sélectionnée -->
-                            <div id="experience-details-box" class="card brutal-card-blue active-exp">
-                                <div class="exp-card-header">
-                                    <div class="exp-meta">
-                                        <span class="exp-date-badge">2020</span>
-                                        <span class="exp-title-h3">Baccalauréat Générale optin NSI et AMC</span>
-                                        <span class="exp-company-ja"></span>
-                                    </div>
-                                    <div class="exp-hanko-seal" id="hanko-seal-container">
-                                        <div class="hanko-seal-verified">検</div>
-                                    </div>
-                                </div>
-                                <div class="exp-card-body">
-                                    <ul class="brutalist-list">
-                                        <li>Direction artistique de sites web interactifs à fort impact pour marques de luxe et culturelles.</li>
-                                        <li>Conception de prototypes interactifs avancés sous Figma et transfert technique rigoureux en CSS.</li>
-                                        <li>Développement de grilles d'information asymétriques optimisées pour tous les formats de terminaux.</li>
-                                        <li>Animation et formation de l'équipe design sur l'accessibilité web et le responsive brut.</li>
-                                    </ul>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </section>
 
                 <div class="section-divider">
-                    <span class="divider-text">SECTION 03 — 作品集</span>
+                    <span class="divider-text">SECTION 03 — <span lang="ja">作品集</span></span>
                 </div>
 
                 <!-- SECTION 03: PROJETS -->
@@ -344,20 +376,21 @@
                                 <!-- Projet 1 -->
                                 <div class="card project-card brutal-card-white">
                                     <div class="project-img-wrapper">
-                                        <img src="assets/projet vol.png" alt="Neo-Tokyo Chronicles" class="project-img">
-                                        <div class="project-status-sticker">UI/UX DESIGN + DEV</div>
+                                        <img src="assets/projet vol.png" alt="Aperçu du site Horizon Voyages" class="project-img">
+                                        <div class="project-status-sticker">UI/UX DESIGN + FIGMA</div>
                                     </div>
                                     <div class="card-body">
-                                       
-                                        <h3 class="project-title">Site de voyage</h3>
-                                        <p class="project-desc">Maquette pour un site de reservation de vol.</p>
+                                        <div class="project-price-tag">LIVRABLE: MAQUETTE FIGMA</div>
+                                        <h3 class="project-title">Horizon Voyages </h3>
+                                        <p class="project-desc">Maquette et direction artistique pour un site de réservation de séjours (destinations phares : Tokyo, Lucerne, Oia).</p>
                                         <div class="project-tags">
-                                            <span class="tag-item">Figma Design System</span>
-                                            <span class="tag-item">Three.js Integration</span>
+                                            <span class="tag-item">Figma UI/UX</span>
+                                            <span class="tag-item">Landing Page Design</span>
+                                            <span class="tag-item">Travel Platform</span>
                                         </div>
                                     </div>
                                     <div class="card-footer-project">
-                                        <a href="project-tokyo.html" class="retro-btn btn-full btn-red btn-project-link">
+                                        <a href="project-horizon.html" class="retro-btn btn-full btn-red btn-project-link">
                                             VOIR LE PROJET ↗
                                         </a>
                                     </div>
@@ -366,20 +399,21 @@
                                 <!-- Projet 2 -->
                                 <div class="card project-card brutal-card-white">
                                     <div class="project-img-wrapper">
-                                        <img src="assets/projet vva.png" alt="Shibuya Synth" class="project-img">
-                                        <div class="project-status-sticker">INTERFACE DESIGN</div>
+                                        <img src="assets/projet vva.png" alt="Aperçu de la plateforme de gestion V.V.A" class="project-img">
+                                        <div class="project-status-sticker">DEV WEB</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="project-title">projet V.V.A </h3>
-                                        <p class="project-desc">Site de réservation d'hébergement d'un village de vacance dans les Alpes avec fonctionnalités différentes selon les comptes( Vacancier, Gestionnaire, Admin)</p>
+                                        <div class="project-price-tag">LIVRABLE: WEB APP + BASE DE DONNÉES</div>
+                                        <h3 class="project-title">Projet V.V.A / </h3>
+                                        <p class="project-desc">Site de réservation d'hébergements de vacances dans les Alpes (Vacancier, Gérant, Administrateur).</p>
                                         <div class="project-tags">
-                                            <span class="tag-item">UI Layout System</span>
-                                            <span class="tag-item">Web Audio UI</span>
-                                            <span class="tag-item">Tailored Icons</span>
+                                            <span class="tag-item">Full-Stack Dev</span>
+                                            <span class="tag-item">MySQL Database</span>
+                                            <span class="tag-item">Multi-Role UX</span>
                                         </div>
                                     </div>
                                     <div class="card-footer-project">
-                                        <a href="#" class="retro-btn btn-full btn-red btn-project-link">
+                                        <a href="project-vva.html" class="retro-btn btn-full btn-red btn-project-link">
                                             VOIR LE PROJET ↗
                                         </a>
                                     </div>
@@ -388,12 +422,13 @@
                                 <!-- Projet 3 -->
                                 <div class="card project-card brutal-card-white">
                                     <div class="project-img-wrapper">
-                                        <img src="assets/atelier simon.png" alt="Hanko Protocol" class="project-img">
+                                        <img src="assets/atelier simon.png" alt="Aperçu du site Atelier Simon" class="project-img">
                                         <div class="project-status-sticker">BRAND IDENTITY + UI</div>
                                     </div>
                                     <div class="card-body">
+                                        <div class="project-price-tag">LIVRABLE: WEB APP : NO CODE</div>
                                         <h3 class="project-title">Atelier Simon</h3>
-                                        <p class="project-desc">Renovation d'un site dpour un atelier de renovation de tableaux.</p>
+                                        <p class="project-desc">Renovation d'un site pour un atelier de renovation de tableaux.</p>
                                         <div class="project-tags">
                                             <span class="tag-item">Identity Design</span>
                                             <span class="tag-item">SVG Manipulation</span>
@@ -401,7 +436,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer-project">
-                                        <a href="#" class="retro-btn btn-full btn-red btn-project-link">
+                                        <a href="project-simon.html" class="retro-btn btn-full btn-red btn-project-link">
                                             VOIR LE PROJET ↗
                                         </a>
                                     </div>
@@ -410,20 +445,21 @@
                                 <!-- Projet 4 -->
                                 <div class="card project-card brutal-card-white">
                                     <div class="project-img-wrapper">
-                                        <img src="assets/hapto.png" alt="Hanko Protocol" class="project-img">
+                                        <img src="assets/hapto.png" alt="Aperçu du site Haptokids" class="project-img">
                                         <div class="project-status-sticker">BRAND IDENTITY + UI</div>
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="project-title">HAPTOKIDS </h3>
-                                        <p class="project-desc">Identité visuelle complète et interface générative permettant la création de signatures vectorielles authentiques sous format SVG.</p>
+                                        <div class="project-price-tag">LIVRABLE: MAQUETTES & UX KIT</div>
+                                        <h3 class="project-title">My Digital Projet : Hapto Kids </h3>
+                                        <p class="project-desc">Plateforme e-commerce de planches sensorielles modulables. Conception des maquettes, arborescence, user flows, personas et UI kit.</p>
                                         <div class="project-tags">
-                                            <span class="tag-item">Identity Design</span>
-                                            <span class="tag-item">SVG Manipulation</span>
-                                            <span class="tag-item">Responsive UI</span>
+                                            <span class="tag-item">UX Research</span>
+                                            <span class="tag-item">User Flow & Personas</span>
+                                            <span class="tag-item">Figma UI Kit</span>
                                         </div>
                                     </div>
                                     <div class="card-footer-project">
-                                        <a href="#" class="retro-btn btn-full btn-red btn-project-link">
+                                        <a href="project-hapto.html" class="retro-btn btn-full btn-red btn-project-link">
                                             VOIR LE PROJET ↗
                                         </a>
                                     </div>
@@ -436,7 +472,7 @@
                 </section>
 
                 <div class="section-divider">
-                    <span class="divider-text">SECTION 04 — 連絡先</span>
+                    <span class="divider-text">SECTION 04 — <span lang="ja">連絡先</span></span>
                 </div>
 
                 <!-- SECTION 04: CONTACT -->
@@ -446,39 +482,39 @@
                         <!-- Formulaire Style Bordereau Postal -->
                         <div class="card brutal-card-white contact-form-card">
                             <div class="card-header bg-blue text-white">
-                                <h2>Bordereau de Message / 連絡用紙</h2>
-                                <span class="card-tag tag-white">POSTAL FORM</span>
+                                <h2>Bordereau de Message </h2>
+                                
                             </div>
                             <div class="card-body">
                                 <form id="brutalist-contact-form" onsubmit="return false;">
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="form-name">Nom de l'Expéditeur / 氏名 <span class="required">*</span></label>
+                                            <label for="form-name">Nom de l'Expéditeur / <span lang="ja">氏名</span> <span class="required">*</span></label>
                                             <input type="text" id="form-name" required placeholder="ex: Jean Dupont" class="brutalist-input">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="form-email">Adresse Courriel / メール <span class="required">*</span></label>
+                                            <label for="form-email">Adresse Courriel / <span lang="ja">メール</span> <span class="required">*</span></label>
                                             <input type="email" id="form-email" required placeholder="ex: jean@dupont.fr" class="brutalist-input">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="form-subject">Sujet du Message / 件名</label>
+                                            <label for="form-subject">Sujet du Message / <span lang="ja">件名</span></label>
                                             <input type="text" id="form-subject" placeholder="ex: Opportunité de projet" class="brutalist-input">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="form-message">Message / 本文 <span class="required">*</span></label>
+                                            <label for="form-message">Message / <span lang="ja">本文</span> <span class="required">*</span></label>
                                             <textarea id="form-message" required rows="6" placeholder="Saisissez votre texte ici..." class="brutalist-input"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-submit-row">
                                         <button type="submit" class="retro-btn btn-full btn-red btn-submit-form">
-                                            <span class="btn-text">TRANSMETTRE LE MESSAGE / 送信</span>
-                                            <span class="hanko-btn-seal">佐藤</span>
+                                            <span class="btn-text">ENVOYE LE MESSAGE / <span lang="ja">送信</span></span>
+                                            <span lang="ja" class="hanko-btn-seal">佐藤</span>
                                         </button>
                                     </div>
                                 </form>
@@ -490,13 +526,13 @@
                             <!-- Ticket d'information standard -->
                             <div class="card brutal-card-blue info-post-card">
                                 <div class="card-header">
-                                    <h3>Informations Réseau / 連絡先</h3>
+                                    <h3>Informations Réseau </h3>
                                 </div>
                                 <div class="card-body">
                                     <ul class="network-list">
                                         <li>
                                             <span class="net-lbl">Courriel :</span>
-                                            <a href="mailto:contact@anguile-diop.dev" class="net-val">contact@anguile-diop.dev</a>
+                                            <a href="mailto:wanguilediop@gmail.com" class="net-val">wanguilediop@gmail.com</a>
                                         </li>
                                         <li>
                                             <span class="net-lbl">GitHub :</span>
@@ -508,7 +544,7 @@
                                         </li>
                                         <li>
                                             <span class="net-lbl">Localisation :</span>
-                                            <span class="net-val">Tokyo / Paris (Remote)</span>
+                                            <span class="net-val"> Paris </span>
                                         </li>
                                     </ul>
                                 </div>
@@ -521,7 +557,7 @@
                                 <div class="receipt-cut"></div>
                                 <div class="receipt-body">
                                     <div class="receipt-header">
-                                        <h4>送信票 — FICHE DE TRANSMISSION</h4>
+                                        <h4><span lang="ja">送信票</span> — FICHE DE TRANSMISSION</h4>
                                         <p class="receipt-sub">COMMUNICATION DOCUMENT</p>
                                     </div>
                                     <hr class="receipt-dash">
@@ -536,7 +572,7 @@
                                         </div>
                                         <div class="receipt-row">
                                             <span>STATUT :</span>
-                                            <span class="receipt-success">TRANSMIS avec succès</span>
+                                            <span class="receipt-success">Message Transmis</span>
                                         </div>
                                     </div>
                                     <hr class="receipt-dash">
@@ -547,7 +583,7 @@
                                     <hr class="receipt-dash">
                                     <div class="receipt-footer">
                                         <p>Ce document confirme la bonne réception de vos données.</p>
-                                        <div class="receipt-stamp">受領</div>
+                                        <div lang="ja" class="receipt-stamp">受領</div>
                                         <div class="receipt-barcode"></div>
                                         <p class="receipt-serial">DOC-REF: JP-BTL-2026-04E0</p>
                                     </div>
