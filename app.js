@@ -1,30 +1,63 @@
-// app.js
+// ==========================================================================
+// CONFIGURATION GLOBALE DES TEMPS D'ANIMATION ET DU CHARGEMENT
+// ==========================================================================
+const ANIM_CONFIG = {
+    // Animations d'apparition (Fade-in gauche à droite)
+    fadeEasing: 'ease-in-out',        // Courbe Easy in and out
+    fadeDurationImages: 1000,         // 1200ms pour les images
+    fadeDurationTexts: 1200,          // 1400ms pour les textes
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Écran de chargement (Brutalist Loader)
+    loaderFirstVisitDuration: 1600,   // Durée d'attente à la première visite (ms)
+    loaderSubsequentDuration: 50,     // Durée d'attente lors des navigations internes (ms)
+    loaderFailsafeTimeout: 2000,      // Sécurité max pour forcer l'ouverture du rideau (ms)
+    pageTransitionDuration: 800,      // Durée de descente du rideau lors du clic avant redirection (ms)
+    
+    // Déclenchement des apparitions (Fade-in scroll)
+    scrollAnimationInitDelay: 100,    // Délai d'initialisation après ouverture du rideau (ms)
+    scrollRootMargin: '0px 0px -40px 0px', // Marge de détection de l'IntersectionObserver
+    scrollThreshold: 0.08             // Pourcentage de l'élément visible pour déclencher (8%)
+};
+window.ANIM_CONFIG = ANIM_CONFIG;
+
+function initApp() {
 
     /* ==========================================================================
        ÉCRAN DE CHARGEMENT BRUTALISTE & TRANSITIONS DE PAGE
        ========================================================================== */
     const loader = document.getElementById('brutalist-loader');
     if (loader) {
-        const isFirstLoad = !sessionStorage.getItem('siteLoaded');
+        let isFirstLoad = true;
+        try {
+            isFirstLoad = !sessionStorage.getItem('siteLoaded');
+        } catch (e) {
+            isFirstLoad = false;
+        }
+
+        const dismissLoader = () => {
+            if (!loader.classList.contains('loaded')) {
+                loader.classList.add('loaded');
+                setTimeout(initScrollAnimations, ANIM_CONFIG.scrollAnimationInitDelay);
+            }
+        };
         
         if (isFirstLoad) {
-            // Première visite : on joue l'animation complète de chargement (1.6s)
+            // Première visite : on joue l'animation complète de chargement
             setTimeout(() => {
-                loader.classList.add('loaded');
-                sessionStorage.setItem('siteLoaded', 'true');
-            }, 1600);
+                dismissLoader();
+                try { sessionStorage.setItem('siteLoaded', 'true'); } catch (e) {}
+            }, ANIM_CONFIG.loaderFirstVisitDuration);
         } else {
             // Navigation interne : on cache les textes et la barre de progression, mais on garde le logo
             const elementsToHide = loader.querySelectorAll('.loader-title, .loader-progress-box, .loader-status');
             elementsToHide.forEach(el => el.style.display = 'none');
             
             // On lève le rideau noir (bas vers le haut) presque immédiatement
-            setTimeout(() => {
-                loader.classList.add('loaded');
-            }, 50);
+            setTimeout(dismissLoader, ANIM_CONFIG.loaderSubsequentDuration);
         }
+
+        // Sécurité absolue : si le rideau ne s'est pas levé au bout du délai max, on force la levée
+        setTimeout(dismissLoader, ANIM_CONFIG.loaderFailsafeTimeout);
 
         // Gérer les transitions de page
         const pageLinks = document.querySelectorAll('a[href*=".html"]');
@@ -46,12 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Le rideau descend (haut vers le bas)
                 loader.classList.remove('loaded');
                 
-                // Redirection après la fin du rideau (0.8s)
+                // Redirection après la fin du rideau
                 setTimeout(() => {
                     window.location.href = href;
-                }, 800);
+                }, ANIM_CONFIG.pageTransitionDuration);
             });
         });
+    } else {
+        initScrollAnimations();
     }
 
     /* ==========================================================================
@@ -370,4 +405,58 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-});
+
+    /* ==========================================================================
+       ANIMATIONS D'APPARITION (FADE IN DE GAUCHE À DROITE)
+       ========================================================================== */
+    function initScrollAnimations() {
+        // Enrichissement automatique pour les pages projets si des éléments clés n'ont pas encore la classe
+        const autoTargets = document.querySelectorAll(
+            '.project-detail-header, .project-banner-card, .project-overview-block, .tech-stack-container, .gallery-item, .project-detail-footer'
+        );
+        autoTargets.forEach((el, index) => {
+            if (!el.classList.contains('fade-in-left')) {
+                el.classList.add('fade-in-left');
+                el.classList.add(`delay-${(index % 4) + 1}`);
+            }
+        });
+
+        const animatedElements = document.querySelectorAll('.fade-in-left');
+        if (animatedElements.length === 0) return;
+
+        if ('IntersectionObserver' in window) {
+            const appearObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: ANIM_CONFIG.scrollRootMargin,
+                threshold: ANIM_CONFIG.scrollThreshold
+            });
+
+            animatedElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                // Si l'élément est déjà visible dans la portion haute de l'écran
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('is-visible');
+                } else {
+                    appearObserver.observe(el);
+                }
+            });
+        } else {
+            // Fallback sans IntersectionObserver
+            animatedElements.forEach(el => el.classList.add('is-visible'));
+        }
+    }
+}
+
+// Lancement garanti quel que soit l'état du document
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
